@@ -40,6 +40,9 @@ end)
 
 -- my stuff
 require'lspconfig'.gopls.setup{}
+require'lspconfig'.rust_analyzer.setup{}
+require'lspconfig'.biome.setup{}
+require'lspconfig'.jdtls.setup{}
 require'lspconfig'.zls.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.cmake.setup{}
