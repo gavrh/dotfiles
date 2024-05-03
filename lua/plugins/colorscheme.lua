@@ -1,12 +1,14 @@
 local palette = {
-    white = "#FFFFFF",
+    white = "#E3E3E3",
     gray_light = "#E0DEF4",
     gray = "#A7A5B5",
     gray_dark = "#423F57",
-    green_dark = "#7D827D",
+    green_dark = "#797D79",
     purple_dark = "#756D9E",
     red_dark = "#885a8c",
     red_light = "#EB6F92",
+    blue_dark = "#31748F",
+    blue = "#5EA4BF",
 }
 
 if true then
@@ -68,8 +70,8 @@ if true then
                         ["@module.builtin"] = { fg = palette.green_dark },
                         ["@label"] = { fg = palette.green_dark },
 
-                        ["@lsp.type.string"] = { fg = "pine" },
-                        ["@string"] = { fg = "pine" },
+                        ["@lsp.type.string"] = { fg = palette.blue_dark },
+                        ["@string"] = { fg = palette.blue_dark },
                         --["@string.documentation"] = {},
                         --["@string.regexp"] = {},
                         --["@string.escape"] = {},
@@ -81,9 +83,9 @@ if true then
                         --["@character"] = {},
                         --["@character.special"] = {},
 
-                        ["@boolean"] = { fg = "foam" },
-                        ["@number"] = { fg = "foam" },
-                        ["@number.float"] = { fg = "foam" },
+                        ["@boolean"] = { fg = palette.blue },
+                        ["@number"] = { fg = palette.blue },
+                        ["@number.float"] = { fg = palette.blue },
 
                         ["@type"] = { fg = palette.green_dark },
                         ["@type.builtin"] = { fg = palette.green_dark },
