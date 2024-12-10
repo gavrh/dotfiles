@@ -6,9 +6,9 @@
 -- This should be executed before you configure any language server
 local lspconfig_defaults = require('lspconfig').util.default_config
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-'force',
-lspconfig_defaults.capabilities,
-require('cmp_nvim_lsp').default_capabilities()
+    'force',
+    lspconfig_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
 )
 
 -- This is where you enable features that only work
@@ -46,7 +46,7 @@ require('lspconfig').lua_ls.setup({
 require('lspconfig').rust_analyzer.setup({})
 require('lspconfig').ts_ls.setup({})
 require('lspconfig').emmet_ls.setup({})
-require('lspconfig').eslint.setup({})
+require('lspconfig').tailwindcss.setup({})
 
 local cmp = require('cmp')
 cmp.setup({
@@ -62,6 +62,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({}),
 })
 
+-- autopairs ("", '', {}, [], ())
 require('nvim-autopairs').setup({
     disable_filetype = { "TelescopePrompt", "spectre_panel" },
     disable_in_macro = true, -- disable when recording or executing a macro
@@ -79,4 +80,14 @@ require('nvim-autopairs').setup({
     map_bs = true, -- map the <BS> key
     map_c_h = false,  -- Map the <C-h> key to delete a pair
     map_c_w = false, -- map <c-w> to delete a pair if possible
+})
+
+-- autotag (<div></div>)
+require('nvim-ts-autotag').setup({
+    opts = {
+        -- defaults
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = false
+    }
 })
