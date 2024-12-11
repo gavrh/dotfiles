@@ -3,10 +3,10 @@ My neovim config :)
 ### Installation
 ```sh
 # linux / mac
-git clone https://github.com/gavrh/nvim-config ~/.config/nvim
+git clone https://github.com/gavrh/nvim-config.git ~/.config/nvim
 
 # windows
-git clone https://github.com/gavrh/nvim-config %USERPROFILE%\AppData\Local\nvim
+git clone https://github.com/gavrh/nvim-config.git %USERPROFILE%\AppData\Local\nvim
 ```
 
 ### Packer
