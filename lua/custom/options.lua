@@ -32,3 +32,4 @@ o.signcolumn = "yes"
 o.updatetime = 50
 
 vim.g.mapleader = " "
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
