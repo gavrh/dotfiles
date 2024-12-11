@@ -1,11 +1,14 @@
 local o = vim.o
 
-vim.opt.guicursor = ""
+o.guicursor = ""
+o.cursorline = true
+o.cursorlineopt = "number"
+o.clipboard = "unnamedplus"
 
 o.number = true
 o.relativenumber = true
 o.numberwidth = 2
-o.ruler = false
+o.ruler = true
 
 o.shiftwidth = 4
 o.tabstop = 4
@@ -13,10 +16,6 @@ o.softtabstop = 4
 o.expandtab = true
 o.smartindent = true
 o.wrap = false
-
-o.clipboard = "unnamedplus"
-o.cursorline = true
-o.cursorlineopt = "number"
 
 o.swapfile = false
 o.backup = false
