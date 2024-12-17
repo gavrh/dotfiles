@@ -5,8 +5,11 @@ require'nvim-treesitter.configs'.setup {
 		"typescript",
         "html",
 		"c",
+        "cpp",
 		"lua",
 		"rust",
+        "go",
+        "zig",
 		"vim",
 		"vimdoc",
 		"query",
@@ -16,8 +19,8 @@ require'nvim-treesitter.configs'.setup {
 
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
-
         "javascriptreact",
+        "typescriptreact",
 	-- Automatically install missing parsers when entering buffer
 	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
 	auto_install = true,
