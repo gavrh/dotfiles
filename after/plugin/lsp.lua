@@ -31,9 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
--- You'll find a list of language servers here:
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
--- These are example language servers. 
+-- lua
 require('lspconfig').lua_ls.setup({
     settings = {
         Lua = {
@@ -43,9 +41,23 @@ require('lspconfig').lua_ls.setup({
         }
     }
 })
+-- rust
 require('lspconfig').rust_analyzer.setup({})
+-- golang
+require('lspconfig').gopls.setup({})
+-- typescript
 require('lspconfig').ts_ls.setup({})
+-- zig
+require('lspconfig').zls.setup({})
+-- html
+require('lspconfig').html.setup({})
+-- htmx
+require('lspconfig').htmx.setup({})
+-- css
+require('lspconfig').cssls.setup({})
+-- react
 require('lspconfig').emmet_ls.setup({})
+-- tailwind
 require('lspconfig').tailwindcss.setup({})
 
 local cmp = require('cmp')
@@ -91,3 +103,14 @@ require('nvim-ts-autotag').setup({
         enable_close_on_slash = false
     }
 })
+
+-- rust server cancellation fix
+for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+    local default_diagnostic_handler = vim.lsp.handlers[method]
+    vim.lsp.handlers[method] = function(err, result, context, config)
+        if err ~= nil and err.code == -32802 then
+            return
+        end
+        return default_diagnostic_handler(err, result, context, config)
+    end
+end
