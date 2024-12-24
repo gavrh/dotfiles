@@ -20,6 +20,7 @@ return require('packer').startup(function(use)
         end
     })
 
+    -- treesitter
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/playground')
     use('tpope/vim-fugitive')
@@ -30,6 +31,8 @@ return require('packer').startup(function(use)
     use({'hrsh7th/cmp-nvim-lsp'})
     use({'williamboman/mason.nvim'})
     use({'williamboman/mason-lspconfig.nvim'})
+
+    -- auto syntax
     use({'windwp/nvim-autopairs'})
     use({'windwp/nvim-ts-autotag'})
 
