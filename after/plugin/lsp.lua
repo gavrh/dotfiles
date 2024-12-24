@@ -43,6 +43,8 @@ require('lspconfig').lua_ls.setup({
 })
 -- rust
 require('lspconfig').rust_analyzer.setup({})
+-- c, cpp
+require('lspconfig').clangd.setup({})
 -- golang
 require('lspconfig').gopls.setup({})
 -- typescript
