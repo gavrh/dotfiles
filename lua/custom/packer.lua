@@ -15,9 +15,9 @@ return require('packer').startup(function(use)
     use({
         'kvrohit/substrata.nvim',
         as = 'substrata',
-        config = function()
-            vim.cmd('colorscheme substrata')
-        end
+        -- config = function()
+        --     vim.cmd('colorscheme substrata')
+        -- end
     })
 
     -- treesitter

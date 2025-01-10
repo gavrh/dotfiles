@@ -1,12 +1,12 @@
 local o = vim.o
 
-o.guicursor = ""
 o.cursorline = true
-o.cursorlineopt = "number"
 o.clipboard = "unnamedplus"
+o.guicursor = ""
 
 o.number = true
 o.relativenumber = true
+-- o.cursorlineopt = "number"
 o.numberwidth = 2
 o.ruler = true
 
