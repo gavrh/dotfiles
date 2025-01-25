@@ -61,6 +61,32 @@ require('lspconfig').cssls.setup({})
 require('lspconfig').emmet_ls.setup({})
 -- tailwind
 require('lspconfig').tailwindcss.setup({})
+-- python
+require('lspconfig').pylsp.setup({
+    settings = {
+        pylsp = {
+            plugins = {
+                -- formatter options
+                black = { enabled = true },
+                autopep8 = { enabled = false },
+                yapf = { enabled = false },
+                -- linter options
+                pylint = { enabled = true, executable = "pylint" },
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                -- type checker
+                pylsp_mypy = { enabled = true },
+                -- auto-completion options
+                jedi_completion = { fuzzy = true },
+                -- import sorting
+                pyls_isort = { enabled = true },
+            },
+        },
+    },
+    flags = {
+        debounce_text_changes = 200,
+    }
+})
 
 local cmp = require('cmp')
 cmp.setup({
@@ -111,7 +137,11 @@ for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) d
     local default_diagnostic_handler = vim.lsp.handlers[method]
     vim.lsp.handlers[method] = function(err, result, context, config)
         if err ~= nil and err.code == -32802 then
-            return
+            if err.code == -32802 then
+                return
+            elseif err.code == -32603 then
+                return
+            end
         end
         return default_diagnostic_handler(err, result, context, config)
     end
