@@ -11,6 +11,7 @@ require'nvim-treesitter.configs'.setup {
 		"rust",
         "go",
         "zig",
+        "python",
 		"vim",
 		"vimdoc",
 		"query",
