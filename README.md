@@ -10,6 +10,8 @@ git clone https://github.com/gavrh/nvim-config.git %USERPROFILE%\AppData\Local\n
 ```
 
 ### Packer
+Install the [Packer](https://github.com/wbthomason/packer.nvim) package manager.
+
 When first opening neovim with the new config, run command ```:PackerSync``` to install all plugins.
 
 Then restart neovim, and you're done.
