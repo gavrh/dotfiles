@@ -45,6 +45,8 @@ require('lspconfig').lua_ls.setup({
 require('lspconfig').rust_analyzer.setup({})
 -- c, cpp
 require('lspconfig').clangd.setup({})
+-- cmake
+require('lspconfig').cmake.setup({})
 -- golang
 require('lspconfig').gopls.setup({})
 -- typescript
@@ -61,6 +63,8 @@ require('lspconfig').cssls.setup({})
 require('lspconfig').emmet_ls.setup({})
 -- tailwind
 require('lspconfig').tailwindcss.setup({})
+-- java
+require('lspconfig').jdtls.setup({})
 -- python
 require('lspconfig').pylsp.setup({
     settings = {
@@ -136,10 +140,12 @@ require('nvim-ts-autotag').setup({
 for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
     local default_diagnostic_handler = vim.lsp.handlers[method]
     vim.lsp.handlers[method] = function(err, result, context, config)
-        if err ~= nil and err.code == -32802 then
+        if err ~= nil then
             if err.code == -32802 then
                 return
             elseif err.code == -32603 then
+                return
+            elseif err.code == -32802 then
                 return
             end
         end

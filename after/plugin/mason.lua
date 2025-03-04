@@ -4,6 +4,7 @@ require("mason-lspconfig").setup({
         "lua_ls",
         "rust_analyzer",
         "clangd",
+        "cmake",
         "gopls",
         "ts_ls",
         "zls",
@@ -12,6 +13,7 @@ require("mason-lspconfig").setup({
         "cssls",
         "emmet_ls",
         "tailwindcss",
+        "jdtls",
         "pylsp",
     },
 })
