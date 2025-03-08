@@ -36,4 +36,15 @@ return require('packer').startup(function(use)
     use({'windwp/nvim-autopairs'})
     use({'windwp/nvim-ts-autotag'})
 
+    -- leetcode
+    -- "nvim leetcode.nvim" to run
+    use({
+        'kawre/leetcode.nvim',
+        requires = {
+            'nvim-telescope/telescope.nvim',
+            'nvim-lua/plenary.nvim',
+            'muniftanjim/nui.nvim'
+        }
+    })
+
 end)
