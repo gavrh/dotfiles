@@ -17,6 +17,9 @@ function ColorMyPencils(color)
     hl(0, "TelescopeResultsBorder", { bg = "none" })
     hl(0, "TelescopePreviewNormal", { bg = "#21232b" })
 
+    -- copilot
+    hl(0, "CopilotSuggestion", { fg = "#494c5a", bg = "none" })
+
 end
 
 ColorMyPencils()
