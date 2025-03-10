@@ -1,0 +1,5 @@
+vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Suggest()', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<C-c>", "<Cmd>call copilot#Dismiss()<CR><Esc>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap("n", "<C-k>", 'copilot#Dismiss()', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<C-h>", 'copilot#Next()', { silent = true, expr = true })
+vim.api.nvim_set_keymap("i", "<C-b>", 'copilot#Previous()', { silent = true, expr = true })
