@@ -44,7 +44,13 @@ require('lspconfig').lua_ls.setup({
 -- rust
 require('lspconfig').rust_analyzer.setup({})
 -- c, cpp
-require('lspconfig').clangd.setup({})
+require('lspconfig').clangd.setup({
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+    }
+})
 -- cmake
 require('lspconfig').cmake.setup({})
 -- golang
