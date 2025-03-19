@@ -29,3 +29,6 @@ mkcd() {
     mkdir -p "${1}"
     cd "${1}"
 }
+
+# logout
+alias logout="loginctl terminate-user ''"

@@ -8,8 +8,9 @@ function ColorMyPencils(color)
 	hl(0, "Normal", { bg = "none" })
 	hl(0, "NormalFloat", { bg = "none" })
 	hl(0, "SignColumn", { bg = "none" })
-	hl(0, "StatusLine", { bg = "#21232b" })
-    hl(0, "CursorLine", { bg = "#21232b" })
+    hl(0, "StatusLine", { bg = "#0a0c0f", fg = "#494c5a" })
+    hl(0, "CursorLine", { bg = "#0a0c0f" })
+    hl(0, "Visual", { bg = "#0a0c0f" })
 
     -- telescope
     hl(0, "TelescopePromptNormal", { bg = "#21232b" })
