@@ -5,6 +5,11 @@ stow:
 	@stow -t ~ bash
 	@echo "✅ bash files stowed"
 
+	@mkdir -p ~/.config/hypr
+	@if [ -d ~/.config/hypr ]; then rm -rf ~/.config/hypr/**; fi
+	@stow -t ~/.config/hypr hypr
+	@echo "✅ hyprland files stowed"
+
 	@mkdir -p ~/.config/neofetch
 	@if [ -d ~/.config/neofetch ]; then rm -rf ~/.config/neofetch/**; fi
 	@stow -t ~/.config/neofetch neofetch
