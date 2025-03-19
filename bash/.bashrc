@@ -101,6 +101,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# custom env
 . "$HOME/.cargo/env"
 export PATH=$HOME/.local/bin:$PATH
 export NVM_DIR="$HOME/.config/nvm"
