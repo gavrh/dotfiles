@@ -29,3 +29,8 @@ stow:
 	@if [ -d ~/.config/waybar ]; then rm -rf ~/.config/waybar/**; fi
 	@stow -t ~/.config/waybar waybar
 	@echo "✅ waybar files stowed"
+
+	@mkdir -p ~/.config/wofi
+	@if [ -d ~/.config/wofi ]; then rm -rf ~/.config/wofi/**; fi
+	@stow -t ~/.config/wofi wofi
+	@echo "✅ wofi files stowed"

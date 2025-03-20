@@ -110,6 +110,7 @@ export NVM_DIR="$HOME/.config/nvm"
 # . "/home/$USER/.deno/env"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 export LLVM_DIR="/usr/lib/llvm-19/lib/cmake/llvm"
+source /usr/share/nvm/init-nvm.sh
 
 # neofetch on exec
 neofetch
