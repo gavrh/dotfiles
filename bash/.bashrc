@@ -104,13 +104,20 @@ fi
 # custom env
 # . "$HOME/.cargo/env"
 export PATH=$HOME/.local/bin:$PATH
+# nvm
+source /usr/share/nvm/init-nvm.sh
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # . "/home/$USER/.deno/env"
+# linux
 export PATH="$PATH:/opt/nvim-linux64/bin"
+# llvm
 export LLVM_DIR="/usr/lib/llvm-19/lib/cmake/llvm"
-source /usr/share/nvm/init-nvm.sh
+# wayland
+export XDG_SESSION_TYPE=wayland
+export GDK_BACKEND=wayland
+export MOZ_ENABLE_WAYLAND=1
 
 # neofetch on exec
 neofetch
