@@ -101,8 +101,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# custom env
-# . "$HOME/.cargo/env"
+# ############### #
+# custom env vars #
+# ############### #
+# cargo global installs
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$HOME/.local/bin:$PATH
 # nvm
 source /usr/share/nvm/init-nvm.sh
