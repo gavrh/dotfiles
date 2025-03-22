@@ -56,18 +56,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-PS1='${debian_chroot:+($debian_chroot)}(\[\033[1;35m\]\w\[\033[00m\]) \[\033[1;32m\]$\[$(tput sgr0)\]\[\033[00m\] '
-
+PS1='\[\e[0m\](\[\e[1;32m\]\w\[\e[0m\]) \[\e[1;36m\]$ \[\e[0m\]'
 unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -121,6 +111,3 @@ export LLVM_DIR="/usr/lib/llvm-19/lib/cmake/llvm"
 export XDG_SESSION_TYPE=wayland
 export GDK_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
-
-# neofetch on exec
-neofetch
