@@ -10,4 +10,7 @@ cd dotfiles
 
 # stow all config files
 make
+
+# stow specific config
+make <config>
 ```
