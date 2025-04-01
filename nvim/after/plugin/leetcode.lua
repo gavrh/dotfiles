@@ -1,5 +1,5 @@
 require("leetcode").setup({
-    lang = "c",
+    lang = "cpp",
     storage = {
         home = vim.fn.stdpath("data") .. "/leetcode", -- Where to store cache and submissions
     }
