@@ -32,6 +32,3 @@ o.signcolumn = "yes"
 o.updatetime = 50
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<C-K>", vim.diagnostic.open_float)
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", ";", ":")
