@@ -19,11 +19,6 @@ alias cats="highlight -O ansi --force"
 # venv python
 alias vpython="./venv/bin/python"
 
-# silent java options
-_SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS"
-unset _JAVA_OPTIONS
-alias java="java \"$_SILENT_JAVA_OPTIONS\""
-
 # make dir and cd into it
 mkcd() {
     mkdir -p "${1}"
