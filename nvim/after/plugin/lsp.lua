@@ -68,7 +68,9 @@ require('lspconfig').cssls.setup({})
 -- react
 require('lspconfig').emmet_ls.setup({})
 -- tailwind
-require('lspconfig').tailwindcss.setup({})
+require('lspconfig').tailwindcss.setup({
+    filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "jsx", "tsx" },
+})
 -- java
 require('lspconfig').jdtls.setup({})
 -- python
