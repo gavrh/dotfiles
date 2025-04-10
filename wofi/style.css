@@ -14,7 +14,7 @@
     background-color: rgba(25, 28, 37, 0.8);
     color: #f2f2f2;
     border: none;
-    border-bottom: 1px solid rgba(25, 28, 37, 0.5);
+    border-bottom: 1px solid rgba(25, 28, 37, 1);
     padding: 0.8rem 1rem;
     font-size: 1.5rem;
     border-radius: 1rem 1rem 0 0;
@@ -34,7 +34,7 @@
 }
 #window #outer-box #scroll #inner-box #entry {
     color: #fff;
-    background-color: rgba(25, 28, 37, 0.5);
+    background-color: rgba(25, 28, 37, 0.7);
     padding: 0.6rem 1rem;
     /* The name of all images in entries displayed in image mode */
     /* The name of all the text in entries */
@@ -45,7 +45,7 @@
 }
 #window #outer-box #scroll #inner-box #entry:selected {
     color: #fff;
-    background-color: rgba(40,45,50, 1);
+    background-color: rgba(40,45,50, 0.4);
     filter: brightness(2);
     outline: none;
 }
