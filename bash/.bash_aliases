@@ -10,9 +10,6 @@ alias nvim-config="nvim ~/.config/nvim"
 # air (golang live reload)
 alias air="~/go/bin/air"
 
-# cd (easy access to certain files i go to alot)
-alias cd-projects="cd ~/Desktop/projects"
-
 # cats (syntax highlighting)
 alias cats="highlight -O ansi --force"
 
