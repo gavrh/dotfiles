@@ -29,7 +29,9 @@ nvim:
 	@echo "✅ neovim files stowed"
 
 tmux:
-	@stow -t ~ tmux
+	@mkdir -p ~/.config/tmux
+	@if [ -d ~/.config/tmux ]; then rm -rf ~/.config/tmux/**; fi
+	@stow -t ~/.config/tmux tmux
 	@echo "✅ tmux files stowed"
 
 waybar:
