@@ -116,6 +116,3 @@ export MOZ_ENABLE_WAYLAND=1
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
-
-# blank space from tmux
-printf "\n"
