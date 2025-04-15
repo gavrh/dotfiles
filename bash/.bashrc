@@ -111,3 +111,11 @@ export LLVM_DIR="/usr/lib/llvm-19/lib/cmake/llvm"
 export MOZ_ENABLE_WAYLAND=1
 # ghc
 [ -f "/home/gavin/.ghcup/env" ] && . "/home/gavin/.ghcup/env" # ghcup-env
+
+# start tmux
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  exec tmux
+fi
+
+# blank space from tmux
+printf "\n"

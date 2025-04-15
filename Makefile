@@ -28,6 +28,10 @@ nvim:
 	@stow -t ~/.config/nvim nvim
 	@echo "✅ neovim files stowed"
 
+tmux:
+	@stow -t ~ tmux
+	@echo "✅ tmux files stowed"
+
 waybar:
 	@mkdir -p ~/.config/waybar
 	@if [ -d ~/.config/waybar ]; then rm -rf ~/.config/waybar/**; fi
@@ -46,8 +50,9 @@ stow:
 	kitty
 	neofetch
 	nvim
+	tmux
 	waybar
 	wofi
 
 
-.PHONY: stow bash hyper kitty neofetch nvim waybar wofi
+.PHONY: stow bash hyper kitty neofetch nvim tmux waybar wofi

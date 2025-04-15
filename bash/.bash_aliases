@@ -2,7 +2,7 @@
 alias la="ls -a"
 
 # clear w/ neofetch
-alias clear="clear && neofetch"
+alias clear="clear && printf \"\n\" && neofetch"
 
 # open nvim config from anywhere
 alias nvim-config="nvim ~/.config/nvim"
