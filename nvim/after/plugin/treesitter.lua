@@ -7,6 +7,7 @@ require'nvim-treesitter.configs'.setup {
         "css",
         "c",
         "cpp",
+        "asm",
         "lua",
         "rust",
         "go",
@@ -15,6 +16,7 @@ require'nvim-treesitter.configs'.setup {
         "python",
         "vim",
         "vimdoc",
+        "lua",
         "query",
         "markdown",
         "markdown_inline"
