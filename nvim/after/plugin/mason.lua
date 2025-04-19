@@ -15,5 +15,6 @@ require("mason-lspconfig").setup({
         "tailwindcss",
         "jdtls",
         "pylsp",
+        "asm_lsp",
     },
 })

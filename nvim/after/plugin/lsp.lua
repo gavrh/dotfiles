@@ -99,6 +99,8 @@ require('lspconfig').pylsp.setup({
         debounce_text_changes = 200,
     }
 })
+-- assembly
+require('lspconfig').asm_lsp.setup({})
 
 local cmp = require('cmp')
 cmp.setup({
