@@ -28,6 +28,12 @@ nvim:
 	@stow -t ~/.config/nvim nvim
 	@echo "✅ neovim files stowed"
 
+qutebrowser:
+	@mkdir -p ~/.config/qutebrowser
+	@if [ -d ~/.config/qutebrowser ]; then rm -rf ~/.config/qutebrowser/config.py; fi
+	@stow -t ~/.config/qutebrowser qutebrowser
+	@echo "✅ qutebrowser files stowed"
+
 tmux:
 	@mkdir -p ~/.config/tmux
 	@if [ -d ~/.config/tmux ]; then rm -rf ~/.config/tmux/**; fi
@@ -55,6 +61,7 @@ stow:
 	tmux
 	waybar
 	wofi
+	qutebrowser
 
 
-.PHONY: stow bash hyper kitty neofetch nvim tmux waybar wofi
+.PHONY: stow bash hyper kitty neofetch nvim qutebrowser tmux waybar wofi
