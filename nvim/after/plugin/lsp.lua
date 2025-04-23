@@ -100,7 +100,9 @@ require('lspconfig').pylsp.setup({
     }
 })
 -- assembly
-require('lspconfig').asm_lsp.setup({})
+require('lspconfig').asm_lsp.setup({
+    root_dir = require('lspconfig').util.root_pattern(".git", "."),
+})
 
 local cmp = require('cmp')
 cmp.setup({
