@@ -1,5 +1,5 @@
 # common bash execs
-alias la="ls -a"
+alias la="ls -la"
 
 # clear w/ neofetch
 alias clear="clear && neofetch"

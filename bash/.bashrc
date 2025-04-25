@@ -96,6 +96,7 @@ fi
 # ############### #
 # cargo global installs
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/env:$PATH"
 export PATH=$HOME/.local/bin:$PATH
 # nvm
 source /usr/share/nvm/init-nvm.sh
