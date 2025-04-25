@@ -1,6 +1,10 @@
 .DEFAULT_GOAL := stow
 
 bash:
+	@if [ -f ~/.bash_aliases ]; then rm -rf ~/.bash_aliases; fi
+	@if [ -f ~/.bash_logout ]; then rm -rf ~/.bash_logout; fi
+	@if [ -f ~/.bash_profile ]; then rm -rf ~/.bash_profile; fi
+	@if [ -f ~/.bashrc ]; then rm -rf ~/.bashrc; fi
 	@stow -t ~ bash
 	@echo "✅ bash files stowed"
 
