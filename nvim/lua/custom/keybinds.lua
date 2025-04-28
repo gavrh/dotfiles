@@ -17,3 +17,8 @@ vim.keymap.set('n', '<leader>k', function()
         vim.cmd("normal! ddkP")
     end
 end)
+-- toggle netrw banner
+vim.keymap.set("n", "<leader>b", function()
+    vim.g.netrw_banner = 1 - vim.g.netrw_banner
+    vim.cmd("Rex")
+end, { desc = "Toggle netrw banner" })
