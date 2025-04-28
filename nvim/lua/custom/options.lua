@@ -28,7 +28,7 @@ o.incsearch = true
 o.termguicolors = true
 o.scrolloff = 8
 o.signcolumn = "yes"
-
 o.updatetime = 50
 
 vim.g.mapleader = " "
+vim.g.netrw_banner = 0
