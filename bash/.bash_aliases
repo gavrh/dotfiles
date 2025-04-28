@@ -1,6 +1,5 @@
 # common bash execs
-alias lau="ls -la --time-style=long-iso --color=always | grep -v '^total' | awk '{printf \"%s %+2s %s %s\n\", \$1, \$2, \$6, \$8}'"
-alias la="lau | head -n 2 && lau | tail -n +3 | sort -k1.1,1.1 -r"
+alias la="ls --group-directories-first --no-group -gha"
 
 # clear w/ neofetch
 alias clear="clear && neofetch"
