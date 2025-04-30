@@ -94,10 +94,9 @@ fi
 # ############### #
 # custom env vars #
 # ############### #
+export PATH=$HOME/.local/bin:$PATH
 # cargo global installs
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.cargo/env:$PATH"
-export PATH=$HOME/.local/bin:$PATH
 # nvm
 source /usr/share/nvm/init-nvm.sh
 export NVM_DIR="$HOME/.config/nvm"
