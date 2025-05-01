@@ -49,6 +49,7 @@ require('lspconfig').clangd.setup({
     cmd = {
         "clangd",
         "--offset-encoding=utf-16",
+        "--compile-commands-dir=build"
     }
 })
 -- cmake
