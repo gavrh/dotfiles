@@ -62,10 +62,10 @@ stow:
 	kitty
 	neofetch
 	nvim
+	qutebrowser
 	tmux
 	waybar
 	wofi
-	qutebrowser
 
 
 .PHONY: stow bash hyper kitty neofetch nvim qutebrowser tmux waybar wofi
