@@ -23,7 +23,7 @@ vim.keymap.set("n", "<leader>b", function()
     vim.cmd("Rex")
 end, { desc = "Toggle netrw banner" })
 -- quick start/end line movement
-vim.keymap.set({ "i", "v" }, "H", "0")
-vim.keymap.set({ "i", "v" }, "L", "$")
+vim.keymap.set({ "n", "v" }, "H", "0")
+vim.keymap.set({ "n", "v" }, "L", "$")
 -- stop ctrl-c interrupt
 vim.keymap.set({ "i", "v" }, '<C-c>', '<Esc>', { noremap = true })
