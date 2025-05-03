@@ -49,7 +49,7 @@ c.colors.completion.item.selected.fg = '#000000'
 # c.colors.downloads.start.bg = '#5e81ac'
 # c.colors.downloads.stop.bg = '#a3be8c'
 
-c.colors.webpage.preferred_color_scheme = "dark"
+c.colors.webpage.preferred_color_scheme = "light"
 
 # fonts
 c.fonts.default_size = "11pt"
