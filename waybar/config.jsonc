@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "position": "top",
-    "output": ["HDMI-A-3"],
+    "output": ["HDMI-A-2"],
     "mod": "dock",
     "exclusive": true,
     "passthrough": false,
