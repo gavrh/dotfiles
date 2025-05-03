@@ -1,15 +1,11 @@
 local hl = vim.api.nvim_set_hl;
 
 function ColorMyPencils(color)
-	color = color or 'substrata'
+	color = color or 'adderall'
 	vim.cmd.colorscheme(color)
 
 	-- native
-	hl(0, "Normal", { bg = "none" })
-	hl(0, "NormalFloat", { bg = "#1d202a" })
-	hl(0, "SignColumn", { bg = "none" })
-	hl(0, "StatusLine", { bg = "#1d202a", fg = "#494c5a" })
-    hl(0, "CursorLine", { bg = "#1d202a" })
+    hl(0, "Normal", { bg = "none" })
 
     -- telescope
     -- hl(0, "TelescopePromptNormal", { bg = "#21232b" })

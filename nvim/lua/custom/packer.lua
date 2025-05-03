@@ -12,12 +12,10 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
+    -- colorscheme
     use({
-        'kvrohit/substrata.nvim',
-        as = 'substrata',
-        -- config = function()
-        --     vim.cmd('colorscheme substrata')
-        -- end
+        'gavrh/adderall.nvim',
+        as = 'adderall'
     })
 
     -- treesitter
