@@ -56,7 +56,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-PS1='\[\e[0m\](\[\e[1;32m\]\w\[\e[0m\]) \[\e[1;36m\]$ \[\e[0m\]'
+PS1='\[\e[0m\](\[\e[1;96m\]\w\[\e[0m\]) \[\e[1;36m\]$ \[\e[0m\]'
 unset color_prompt force_color_prompt
 
 # enable color support of ls and also add handy aliases
