@@ -1,28 +1,31 @@
 config.load_autoconfig()
 
 # ui colors
-COLOR_MAIN              = "#191c25"
-COLOR_MAIN_DARKER       = "#161921"
+COLOR_MAIN              = "#ffffff"
+COLOR_MAIN_DARKER       = "#f3f3f3"
 COLOR_BLACK             = "#32353e"
 COLOR_BLACK_BRIGHTER    = "#4b4e57"
-COLOR_RED               = "#fc2f52"
-COLOR_RED_BRIGHTER      = "#ff6480"
-COLOR_GREEN             = "#659ea2"
-COLOR_GREEN_BRIGHTER    = "#47d4b9"
-COLOR_WHITE             = "#cdd4e0"
+COLOR_RED               = "#ce0326"
+COLOR_RED_BRIGHTER      = "#f8002d"
+COLOR_GREEN             = "#489577"
+COLOR_GREEN_BRIGHTER    = "#00ad82"
+COLOR_WHITE             = "#f3f3f3"
 COLOR_WHITE_BRIGHTER    = "#ffffff"
 
 c.colors.statusbar.normal.bg = COLOR_MAIN
+c.colors.statusbar.normal.fg = COLOR_BLACK
 c.colors.statusbar.insert.bg = COLOR_MAIN
+c.colors.statusbar.insert.fg = COLOR_BLACK
 c.colors.statusbar.command.bg = COLOR_MAIN
-c.colors.statusbar.progress.bg = COLOR_BLACK
+c.colors.statusbar.command.fg = COLOR_BLACK
+c.colors.statusbar.progress.bg = COLOR_WHITE
 
-c.colors.statusbar.url.fg = COLOR_WHITE
-c.colors.statusbar.url.success.https.fg = COLOR_WHITE
-c.colors.statusbar.url.success.http.fg = COLOR_WHITE
-c.colors.statusbar.url.error.fg = COLOR_WHITE
-c.colors.statusbar.url.warn.fg = COLOR_WHITE
-c.colors.statusbar.url.hover.fg = COLOR_WHITE
+c.colors.statusbar.url.fg = COLOR_BLACK
+c.colors.statusbar.url.success.https.fg = COLOR_BLACK
+c.colors.statusbar.url.success.http.fg = COLOR_BLACK
+c.colors.statusbar.url.error.fg = COLOR_BLACK
+c.colors.statusbar.url.warn.fg = COLOR_BLACK
+c.colors.statusbar.url.hover.fg = COLOR_BLACK
 
 c.colors.tabs.bar.bg = COLOR_MAIN_DARKER
 c.colors.tabs.odd.bg = COLOR_MAIN_DARKER
@@ -31,8 +34,8 @@ c.colors.tabs.odd.fg = COLOR_BLACK_BRIGHTER
 c.colors.tabs.even.fg = COLOR_BLACK_BRIGHTER
 c.colors.tabs.selected.odd.bg = COLOR_MAIN
 c.colors.tabs.selected.even.bg = COLOR_MAIN
-c.colors.tabs.selected.odd.fg = COLOR_WHITE
-c.colors.tabs.selected.even.fg = COLOR_WHITE
+c.colors.tabs.selected.odd.fg = COLOR_BLACK
+c.colors.tabs.selected.even.fg = COLOR_BLACK
 
 c.colors.completion.category.bg = COLOR_MAIN
 c.colors.completion.category.fg = '#eceff4'
