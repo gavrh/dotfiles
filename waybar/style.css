@@ -5,19 +5,21 @@
     font-weight: bold;
     font-size: 16px;
     min-height: 0;
+    color: #4b4e57;
 }
 
 window#waybar {
     background: rgba(21, 18, 27, 0);
-    color: #cdd6f4;
+    color: #4b4e57;
 }
 
 tooltip {
-    background: #1e1e2e;
+    color: #4b4e57;
+    background: #f3f3f3;
     border-radius: 10px;
     border-width: 2px;
     border-style: solid;
-    border-color: #11111b;
+    border-color: #f0f0f0;
 }
 
 #workspaces button {
@@ -57,21 +59,21 @@ tooltip {
 #tray,
 
 #backlight {
-    background: #191c25;
+    background: #f3f3f3;
     opacity: 0.8;
     padding: 0px 10px;
     /* margin: 3px 0px; */
     margin: 0px 0px;
     margin-top: 10px;
-    border: 1px solid #181825;
+    border: 1px solid #f0f0f0;
 }
 
 #memory {
-    color: #eba0ac;
+    color: #3c6274;
 }
 
 #cpu {
-    color: #47d4b9;
+    color: #3c6274;
     border-radius: 10px 0px 0px 10px;
 }
 
@@ -109,13 +111,13 @@ tooltip {
 }
 
 #pulseaudio {
-    color: #89b4fa;
+    color: #3a8187;
     border-left: 0px;
     border-right: 0px;
 }
 
 #pulseaudio.microphone {
-    color: #cba6f7;
+    color: #3a8187;
     border-left: 0px;
     border-right: 0px;
     border-radius: 0px 10px 10px 0px;
