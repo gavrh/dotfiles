@@ -68,7 +68,7 @@ c.tabs.title.format = "{audio} {current_title}"
 c.auto_save.session = False
 c.content.autoplay = False
 c.editor.command = ["nvim", "{}"]
-c.scrolling.smooth = True
+c.scrolling.smooth = False
 
 # bindings
 config.bind('<Ctrl-s>', 'config-cycle tabs.show always never')
