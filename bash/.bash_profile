@@ -1,5 +1,5 @@
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
-  exec hyprland
+    exec hyprland
 fi
 
 if [ -n "$BASH_VERSION" ]; then
