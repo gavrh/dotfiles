@@ -22,5 +22,8 @@ mkcd() {
     cd "${1}"
 }
 
+# region select screenshot
+alias rss='grim -g "$(slurp)"'
+
 # logout
 alias logout="loginctl terminate-user ''"
