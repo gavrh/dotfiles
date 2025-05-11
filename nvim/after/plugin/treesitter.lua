@@ -12,6 +12,7 @@ require'nvim-treesitter.configs'.setup {
         "rust",
         "go",
         "zig",
+        "haskell",
         "java",
         "python",
         "vim",
