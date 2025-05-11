@@ -60,6 +60,8 @@ require('lspconfig').gopls.setup({})
 require('lspconfig').ts_ls.setup({})
 -- zig
 require('lspconfig').zls.setup({})
+-- haskell
+require('lspconfig').hls.setup({})
 -- html
 require('lspconfig').html.setup({})
 -- htmx
