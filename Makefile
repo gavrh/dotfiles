@@ -1,4 +1,5 @@
 .DEFAULT_GOAL := stow
+MAKEFLAGS += --no-print-directory
 
 bash:
 	@if [ -f ~/.bash_aliases ]; then rm -rf ~/.bash_aliases; fi
@@ -8,11 +9,11 @@ bash:
 	@stow -t ~ bash
 	@echo "✅ bash files stowed"
 
-hypr:
-	@mkdir -p ~/.config/hypr
-	@if [ -d ~/.config/hypr ]; then rm -rf ~/.config/hypr/**; fi
-	@stow -t ~/.config/hypr hypr
-	@echo "✅ hyprland files stowed"
+i3:
+	@mkdir -p ~/.config/i3
+	@if [ -d ~/.config/i3 ]; then rm -rf ~/.config/i3/**; fi
+	@stow -t ~/.config/i3 i3
+	@echo "✅ i3 files stowed"
 
 kitty:
 	@mkdir -p ~/.config/kitty
@@ -32,11 +33,23 @@ nvim:
 	@stow -t ~/.config/nvim nvim
 	@echo "✅ neovim files stowed"
 
+polybar:
+	@mkdir -p ~/.config/polybar
+	@if [ -d ~/.config/polybar ]; then rm -rf ~/.config/polybar/**; fi
+	@stow -t ~/.config/polybar polybar
+	@echo "✅ polybar files stowed"
+
 qutebrowser:
 	@mkdir -p ~/.config/qutebrowser
 	@if [ -d ~/.config/qutebrowser ]; then rm -rf ~/.config/qutebrowser/config.py; fi
 	@stow -t ~/.config/qutebrowser qutebrowser
 	@echo "✅ qutebrowser files stowed"
+
+rofi:
+	@mkdir -p ~/.config/rofi
+	@if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi/**; fi
+	@stow -t ~/.config/rofi rofi
+	@echo "✅ rofi files stowed"
 
 tmux:
 	@mkdir -p ~/.config/tmux
@@ -44,28 +57,13 @@ tmux:
 	@stow -t ~/.config/tmux tmux
 	@echo "✅ tmux files stowed"
 
-waybar:
-	@mkdir -p ~/.config/waybar
-	@if [ -d ~/.config/waybar ]; then rm -rf ~/.config/waybar/**; fi
-	@stow -t ~/.config/waybar waybar
-	@echo "✅ waybar files stowed"
+xorg:
+	@if [ -f ~/.xinitrc ]; then rm -rf ~/.xinitrc ; fi
+	@if [ -f ~/.xprofile ]; then rm -rf ~/.xprofile; fi
+	@if [ -f ~/.xresources ]; then rm -rf ~/.xresources; fi
+	@stow -t ~ xorg
+	@echo "✅ xorg files stowed"
 
-wofi:
-	@mkdir -p ~/.config/wofi
-	@if [ -d ~/.config/wofi ]; then rm -rf ~/.config/wofi/**; fi
-	@stow -t ~/.config/wofi wofi
-	@echo "✅ wofi files stowed"
+stow: bash i3 kitty neofetch nvim polybar qutebrowser rofi tmux xorg
 
-stow:
-	bash
-	hypr
-	kitty
-	neofetch
-	nvim
-	qutebrowser
-	tmux
-	waybar
-	wofi
-
-
-.PHONY: stow bash hyper kitty neofetch nvim qutebrowser tmux waybar wofi
+.PHONY: stow bash i3 kitty neofetch nvim polybar qutebrowser rofi tmux xorg
