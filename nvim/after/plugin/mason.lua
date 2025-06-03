@@ -9,7 +9,6 @@ require("mason-lspconfig").setup({
         "ts_ls",
         "zls",
         "html",
-        "htmx",
         "cssls",
         "emmet_ls",
         "tailwindcss",

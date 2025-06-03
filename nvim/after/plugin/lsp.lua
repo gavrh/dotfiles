@@ -64,8 +64,6 @@ require('lspconfig').zls.setup({})
 require('lspconfig').hls.setup({})
 -- html
 require('lspconfig').html.setup({})
--- htmx
-require('lspconfig').htmx.setup({})
 -- css
 require('lspconfig').cssls.setup({})
 -- react
