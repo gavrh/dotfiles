@@ -70,6 +70,12 @@ c.content.autoplay = False
 c.editor.command = ["nvim", "{}"]
 c.scrolling.smooth = False
 
+# rendering
+c.qt.force_software_rendering = True
+c.qt.args = ['--disable-gpu', '--disable-software-rasterizer']
+c.qt.chromium_flags = '--disable-gpu-compositing --disable-gpu'
+
+
 # bindings
 config.bind('<Ctrl-s>', 'config-cycle tabs.show always never')
 
