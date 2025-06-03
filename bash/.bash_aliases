@@ -23,7 +23,7 @@ mkcd() {
 }
 
 # region select screenshot
-alias rss='grim -g "$(slurp)"'
+alias rss='maim -s ~/Documents/screenshots/$(date +%s).png'
 
 # logout
 alias logout="loginctl terminate-user ''"
