@@ -107,8 +107,6 @@ export NVM_DIR="$HOME/.config/nvm"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 # llvm
 export LLVM_DIR="/usr/lib/llvm-19/lib/cmake/llvm"
-# wayland
-export MOZ_ENABLE_WAYLAND=1
 # ghc
 [ -f "/home/gavin/.ghcup/env" ] && . "/home/gavin/.ghcup/env" # ghcup-env
 
