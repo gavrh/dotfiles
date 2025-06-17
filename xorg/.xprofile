@@ -1,6 +1,7 @@
 #!/bin/sh
 
 xrandr \
-    --output HDMI-1-1 --mode 1920x1080 --rate 60 --rotate left --pos 0x0 \
+    --output HDMI-3 --mode 2560x1440 --rate 75 --rotate normal --pos 3000x0 \
     --output HDMI-1-0 --primary --mode 1920x1080 --rate 240 --rotate normal --pos 1080x325 \
-    --output HDMI-1 --mode 2560x1440 --rate 75 --rotate normal --pos 3000x0
+    --output HDMI-1-1 --mode 1920x1080 --rate 60 --rotate left --pos 0x0
+
