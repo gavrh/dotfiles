@@ -26,7 +26,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Return exec kitty
 bindsym $mod+b exec qutebrowser
 bindsym $mod+d exec --no-startup-id rofi -show drun
-bindsym $mod+x exec qtfm
+bindsym $mod+e exec qtfm
 
 # kill window
 bindsym $mod+c kill
@@ -53,9 +53,10 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 
 # floating / focus modes
-bindsym $mod+Shift+space floating toggle
-bindsym $mod+space focus mode_toggle
-bindsym $mod+a focus parent
+bindsym $mod+space floating toggle
+# bindsym $mod+Shift+space focus mode_toggle
+# bindsym $mod+a focus parent
+bindsym $mod+x split toggle
 
 # workspaces
 set $ws1 "1"
@@ -72,13 +73,13 @@ set $ws10 "10"
 # workspace outputs
 workspace $ws1 output HDMI-1-1
 workspace $ws2 output HDMI-1-0
-workspace $ws3 output HDMI-1
+workspace $ws3 output HDMI-3
 workspace $ws4 output HDMI-1-1
 workspace $ws5 output HDMI-1-0
-workspace $ws6 output HDMI-1
+workspace $ws6 output HDMI-3
 workspace $ws7 output HDMI-1-1
 workspace $ws8 output HDMI-1-0
-workspace $ws9 output HDMI-1
+workspace $ws9 output HDMI-3
 
 # workspace switching
 bindsym $mod+1 workspace number $ws1
@@ -126,12 +127,10 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 
-# i3 helpers
+# i3 execs
 exec_always --no-startup-id ~/.config/i3/autosplit.py
-bindsym $mod+e exec --no-startup-id ~/.config/i3/togglesplit.sh
-
-# start polybar
-exec_always --no-startup-id polybar
+exec --no-startup-id xwallpaper --stretch ~/.config/i3/wallpaper.jpg
+exec --no-startup-id polybar
 
 # appearance
 for_window [class=".*"] border pixel 1
