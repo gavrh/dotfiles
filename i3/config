@@ -49,8 +49,9 @@ bindsym $mod+Control+v split v
 
 # fullscreen and layout controls
 bindsym $mod+f fullscreen toggle
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+w layout default
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
 
 # floating / focus modes
 bindsym $mod+space floating toggle
