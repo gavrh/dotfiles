@@ -1,0 +1,15 @@
+ftxui
+ftxui-debug
+minecraft-launcher
+minecraft-launcher-debug
+neofetch
+protonup-qt
+python-inputs
+python-steam
+python-vdf
+qtfm
+qtfm-debug
+tor-browser-bin
+vial-appimage
+yay
+yay-debug
