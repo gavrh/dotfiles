@@ -109,6 +109,8 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export LLVM_DIR="/usr/lib/llvm-19/lib/cmake/llvm"
 # ghc
 [ -f "/home/gavin/.ghcup/env" ] && . "/home/gavin/.ghcup/env" # ghcup-env
+# pkgconfig
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig:$PKG_CONFIG_PATH
 
 # start tmux
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
