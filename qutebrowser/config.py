@@ -1,48 +1,49 @@
 config.load_autoconfig()
 
 # ui colors
-COLOR_MAIN              = "#ffffff"
-COLOR_MAIN_DARKER       = "#f3f3f3"
+COLOR_MAIN              = "#1c1f26"
+COLOR_MAIN_DARKER       = "#16181d"
 COLOR_BLACK             = "#32353e"
 COLOR_BLACK_BRIGHTER    = "#4b4e57"
-COLOR_RED               = "#ce0326"
-COLOR_RED_BRIGHTER      = "#f8002d"
+COLOR_RED               = "#ec032b"
+COLOR_RED_BRIGHTER      = "#ff133e"
 COLOR_GREEN             = "#489577"
 COLOR_GREEN_BRIGHTER    = "#00ad82"
 COLOR_WHITE             = "#f3f3f3"
 COLOR_WHITE_BRIGHTER    = "#ffffff"
 
 c.colors.statusbar.normal.bg = COLOR_MAIN
-c.colors.statusbar.normal.fg = COLOR_BLACK
+c.colors.statusbar.normal.fg = COLOR_WHITE
 c.colors.statusbar.insert.bg = COLOR_MAIN
-c.colors.statusbar.insert.fg = COLOR_BLACK
+c.colors.statusbar.insert.fg = COLOR_WHITE
 c.colors.statusbar.command.bg = COLOR_MAIN
-c.colors.statusbar.command.fg = COLOR_BLACK
-c.colors.statusbar.progress.bg = COLOR_WHITE
+c.colors.statusbar.command.fg = COLOR_WHITE
+c.colors.statusbar.progress.bg = COLOR_BLACK
 
-c.colors.statusbar.url.fg = COLOR_BLACK
-c.colors.statusbar.url.success.https.fg = COLOR_BLACK
-c.colors.statusbar.url.success.http.fg = COLOR_BLACK
-c.colors.statusbar.url.error.fg = COLOR_BLACK
-c.colors.statusbar.url.warn.fg = COLOR_BLACK
-c.colors.statusbar.url.hover.fg = COLOR_BLACK
+c.colors.statusbar.url.fg = COLOR_WHITE
+c.colors.statusbar.url.success.https.fg = COLOR_WHITE
+c.colors.statusbar.url.success.http.fg = COLOR_WHITE
+c.colors.statusbar.url.error.fg = COLOR_WHITE
+c.colors.statusbar.url.warn.fg = COLOR_WHITE
+c.colors.statusbar.url.hover.fg = COLOR_WHITE 
 
-c.colors.tabs.bar.bg = COLOR_MAIN_DARKER
-c.colors.tabs.odd.bg = COLOR_MAIN_DARKER
-c.colors.tabs.even.bg = COLOR_MAIN_DARKER
+c.colors.tabs.bar.bg = COLOR_MAIN
+c.colors.tabs.odd.bg = COLOR_MAIN
+c.colors.tabs.even.bg = COLOR_MAIN
 c.colors.tabs.odd.fg = COLOR_BLACK_BRIGHTER
 c.colors.tabs.even.fg = COLOR_BLACK_BRIGHTER
 c.colors.tabs.selected.odd.bg = COLOR_MAIN
 c.colors.tabs.selected.even.bg = COLOR_MAIN
-c.colors.tabs.selected.odd.fg = COLOR_BLACK
-c.colors.tabs.selected.even.fg = COLOR_BLACK
+c.colors.tabs.selected.odd.fg = COLOR_WHITE
+c.colors.tabs.selected.even.fg = COLOR_WHITE
 
+c.colors.completion.fg = COLOR_WHITE
 c.colors.completion.category.bg = COLOR_MAIN
 c.colors.completion.category.fg = '#eceff4'
 c.colors.completion.item.selected.bg = '#ffffff'
 c.colors.completion.item.selected.fg = '#000000'
-# c.colors.completion.bg = '#2e3440'
-# c.colors.completion.fg = '#000000'
+c.colors.completion.even.bg = COLOR_MAIN
+c.colors.completion.odd.bg = COLOR_MAIN_DARKER
 
 # c.colors.messages.error.bg = '#bf616a'
 # c.colors.messages.warning.bg = '#ebcb8b'
@@ -52,7 +53,7 @@ c.colors.completion.item.selected.fg = '#000000'
 # c.colors.downloads.start.bg = '#5e81ac'
 # c.colors.downloads.stop.bg = '#a3be8c'
 
-c.colors.webpage.preferred_color_scheme = "light"
+c.colors.webpage.preferred_color_scheme = "dark"
 
 # fonts
 c.fonts.default_size = "11pt"
