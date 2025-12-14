@@ -6,7 +6,6 @@ function ColorMyPencils(color)
 	vim.cmd.colorscheme(color)
 
 	-- native
-    hl(0, "Normal", { bg = "none" })
 
 end
 

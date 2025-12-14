@@ -38,32 +38,32 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 -- common capabilities
 local capabilities = vim.tbl_deep_extend(
-  'force',
-  vim.lsp.protocol.make_client_capabilities(),
-  require('cmp_nvim_lsp').default_capabilities()
+    'force',
+    vim.lsp.protocol.make_client_capabilities(),
+    require('cmp_nvim_lsp').default_capabilities()
 )
 
 -- lua
 vim.lsp.config.lua_ls = {
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      diagnostics = { globals = { 'vim' } },
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostics = { globals = { 'vim' } },
+        },
     },
-  },
 }
 -- rust
 vim.lsp.config.rust_analyzer = {
-  capabilities = capabilities,
+    capabilities = capabilities,
 }
 -- c / cpp
 vim.lsp.config.clangd = {
-  capabilities = capabilities,
-  cmd = {
-    "clangd",
-    "--offset-encoding=utf-16",
-    "--compile-commands-dir=build",
-  },
+    capabilities = capabilities,
+    cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+        "--compile-commands-dir=build",
+    },
 }
 -- cmake
 vim.lsp.config.cmake = { capabilities = capabilities }
@@ -83,46 +83,56 @@ vim.lsp.config.cssls = { capabilities = capabilities }
 vim.lsp.config.emmet_ls = { capabilities = capabilities }
 -- tailwind
 vim.lsp.config.tailwindcss = {
-  capabilities = capabilities,
-  filetypes = {
-    "html",
-    "css",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "jsx",
-    "tsx",
-  },
+    capabilities = capabilities,
+    filetypes = {
+        "html",
+        "css",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "jsx",
+        "tsx",
+    },
+    settings = {
+        tailwindCSS = {
+            lint = {
+                suggestCanonicalClasses = "ignore"
+            }
+        }
+    }
 }
 -- java
 vim.lsp.config.jdtls = { capabilities = capabilities }
+-- sql
+vim.g.omni_sql_no_default_maps = 1
+vim.lsp.config.postgres_lsp = { capabilities = capabilities }
 -- python
 vim.lsp.config.pylsp = {
-  capabilities = capabilities,
-  settings = {
-    pylsp = {
-      plugins = {
-        black = { enabled = true },
-        autopep8 = { enabled = false },
-        yapf = { enabled = false },
-        pylint = { enabled = true, executable = "pylint" },
-        pyflakes = { enabled = false },
-        pycodestyle = { enabled = false },
-        pylsp_mypy = { enabled = true },
-        jedi_completion = { fuzzy = true },
-        pyls_isort = { enabled = true },
-      },
+    capabilities = capabilities,
+    settings = {
+        pylsp = {
+            plugins = {
+                black = { enabled = true },
+                autopep8 = { enabled = false },
+                yapf = { enabled = false },
+                pylint = { enabled = true, executable = "pylint" },
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                pylsp_mypy = { enabled = true },
+                jedi_completion = { fuzzy = true },
+                pyls_isort = { enabled = true },
+            },
+        },
     },
-  },
-  flags = {
-    debounce_text_changes = 200,
-  },
+    flags = {
+        debounce_text_changes = 200,
+    },
 }
 -- assembly
 vim.lsp.config.asm_lsp = {
-  capabilities = capabilities,
-  root_dir = vim.fs.root(0, { ".git", "." }),
+    capabilities = capabilities,
+    root_dir = vim.fs.root(0, { ".git", "." }),
 }
 
 local cmp = require('cmp')
