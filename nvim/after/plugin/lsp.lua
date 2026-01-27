@@ -4,12 +4,17 @@
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
-local lspconfig_defaults = require('lspconfig').util.default_config
-lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+local default_capabilities = vim.lsp.protocol.make_client_capabilities()
+
+vim.lsp.config = vim.lsp.config or {}
+vim.lsp.config._defaults = vim.lsp.config._defaults or {}
+
+vim.lsp.config._defaults.capabilities = vim.tbl_deep_extend(
     'force',
-    lspconfig_defaults.capabilities,
+    default_capabilities,
     require('cmp_nvim_lsp').default_capabilities()
 )
+
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
@@ -31,79 +36,104 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+-- common capabilities
+local capabilities = vim.tbl_deep_extend(
+    'force',
+    vim.lsp.protocol.make_client_capabilities(),
+    require('cmp_nvim_lsp').default_capabilities()
+)
+
 -- lua
-require('lspconfig').lua_ls.setup({
+vim.lsp.config.lua_ls = {
+    capabilities = capabilities,
     settings = {
         Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-})
+            diagnostics = { globals = { 'vim' } },
+        },
+    },
+}
 -- rust
-require('lspconfig').rust_analyzer.setup({})
--- c, cpp
-require('lspconfig').clangd.setup({
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+vim.lsp.config.rust_analyzer = {
+    capabilities = capabilities,
+}
+-- c / cpp
+vim.lsp.config.clangd = {
+    capabilities = capabilities,
     cmd = {
         "clangd",
         "--offset-encoding=utf-16",
-        "--compile-commands-dir=build"
-    }
-})
+        "--compile-commands-dir=build",
+    },
+}
 -- cmake
-require('lspconfig').cmake.setup({})
--- golang
-require('lspconfig').gopls.setup({})
--- typescript
-require('lspconfig').ts_ls.setup({})
+vim.lsp.config.cmake = { capabilities = capabilities }
+-- go
+vim.lsp.config.gopls = { capabilities = capabilities }
+-- typescript / javascript
+vim.lsp.config.ts_ls = { capabilities = capabilities }
 -- zig
-require('lspconfig').zls.setup({})
+vim.lsp.config.zls = { capabilities = capabilities }
 -- haskell
-require('lspconfig').hls.setup({})
+vim.lsp.config.hls = { capabilities = capabilities }
 -- html
-require('lspconfig').html.setup({})
+vim.lsp.config.html = { capabilities = capabilities }
 -- css
-require('lspconfig').cssls.setup({})
--- react
-require('lspconfig').emmet_ls.setup({})
+vim.lsp.config.cssls = { capabilities = capabilities }
+-- react / emmet
+vim.lsp.config.emmet_ls = { capabilities = capabilities }
 -- tailwind
-require('lspconfig').tailwindcss.setup({
-    filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "jsx", "tsx" },
-})
+vim.lsp.config.tailwindcss = {
+    capabilities = capabilities,
+    filetypes = {
+        "html",
+        "css",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "jsx",
+        "tsx",
+    },
+    settings = {
+        tailwindCSS = {
+            lint = {
+                suggestCanonicalClasses = "ignore"
+            }
+        }
+    }
+}
 -- java
-require('lspconfig').jdtls.setup({})
+vim.lsp.config.jdtls = { capabilities = capabilities }
+-- sql
+vim.g.omni_sql_no_default_maps = 1
+vim.lsp.config.postgres_lsp = { capabilities = capabilities }
 -- python
-require('lspconfig').pylsp.setup({
+vim.lsp.config.pylsp = {
+    capabilities = capabilities,
     settings = {
         pylsp = {
             plugins = {
-                -- formatter options
                 black = { enabled = true },
                 autopep8 = { enabled = false },
                 yapf = { enabled = false },
-                -- linter options
                 pylint = { enabled = true, executable = "pylint" },
                 pyflakes = { enabled = false },
                 pycodestyle = { enabled = false },
-                -- type checker
                 pylsp_mypy = { enabled = true },
-                -- auto-completion options
                 jedi_completion = { fuzzy = true },
-                -- import sorting
                 pyls_isort = { enabled = true },
             },
         },
     },
     flags = {
         debounce_text_changes = 200,
-    }
-})
+    },
+}
 -- assembly
-require('lspconfig').asm_lsp.setup({
-    root_dir = require('lspconfig').util.root_pattern(".git", "."),
-})
+vim.lsp.config.asm_lsp = {
+    capabilities = capabilities,
+    root_dir = vim.fs.root(0, { ".git", "." }),
+}
 
 local cmp = require('cmp')
 cmp.setup({
