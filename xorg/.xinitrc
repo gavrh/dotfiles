@@ -9,10 +9,10 @@ xterm="xterm"
 twm="twm"
 xmodmap="xmodmap"
 
-userresources="$HOME/.Xresources"
-usermodmap="$HOME/.Xmodmap"
-sysresources="$xinitdir/.Xresources"
-sysmodmap="$xinitdir/.Xmodmap"
+userresources="$HOME/.xresources"
+usermodmap="$HOME/.xmodmap"
+sysresources="$xinitdir/.xresources"
+sysmodmap="$xinitdir/.xmodmap"
 
 # merge in defaults and keymaps
 
