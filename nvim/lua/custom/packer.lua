@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
 
     -- treesitter
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-    use('nvim-treesitter/playground')
+    -- use('nvim-treesitter/playground')
     use('tpope/vim-fugitive')
 
     -- lsp

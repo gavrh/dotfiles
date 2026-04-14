@@ -4,7 +4,6 @@ require("mason-lspconfig").setup({
         "lua_ls",
         "rust_analyzer",
         "clangd",
-        "cmake",
         "gopls",
         "ts_ls",
         "zls",
