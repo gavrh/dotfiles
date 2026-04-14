@@ -1,4 +1,0 @@
-lib32-nvidia-utils
-nvidia
-nvidia-prime
-nvidia-settings
