@@ -6,18 +6,17 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.8',
-        -- or				, branch = '0.1.x'
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
     -- colorscheme
     use({
         'gavrh/adderall.nvim',
         as = 'adderall'
     })
 
+    -- telescope
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
     -- treesitter
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     -- use('nvim-treesitter/playground')
@@ -44,16 +43,14 @@ return require('packer').startup(function(use)
             'muniftanjim/nui.nvim'
         }
     })
-
-    -- copilot
+    -- opencode
     use({
-        'zbirenbaum/copilot.lua',
+        'sudo-tee/opencode.nvim',
         config = function()
-            require("copilot").setup({
-                suggestion = { enabled = true, auto_trigger = true },
-                panel = { enabled = false },
+            require('opencode').setup({
+                preferred_picker = 'telescope',
+                preferred_completion = 'nvim-cmp',
             })
         end,
     })
-
 end)
