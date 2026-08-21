@@ -1,5 +1,5 @@
+-- A list of parser names, or "all" (the listed parsers MUST always be installed)
 require'nvim-treesitter.config'.setup {
-    -- A list of parser names, or "all" (the listed parsers MUST always be installed)
     ensure_installed = {
         "javascript",
         "jsx",
@@ -11,6 +11,7 @@ require'nvim-treesitter.config'.setup {
         "cpp",
         "asm",
         "lua",
+        "luau",
         "rust",
         "go",
         "zig",
@@ -19,7 +20,6 @@ require'nvim-treesitter.config'.setup {
         "python",
         "vim",
         "vimdoc",
-        "lua",
         "query",
         "markdown",
         "markdown_inline"
@@ -47,3 +47,11 @@ require'nvim-treesitter.config'.setup {
         enable = true,
     },
 }
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "luau",
+    callback = function(args)
+        vim.bo[args.buf].syntax = ""
+        vim.treesitter.start(args.buf, "luau")
+    end,
+})
