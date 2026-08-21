@@ -237,8 +237,14 @@ end
 
 ensure_luau_files()
 
+local luau_capabilities = capabilities
+luau_capabilities.workspace = capabilities.workspace or {}
+luau_capabilities.workspace.didChangeWatchedFiles = {
+    dynamicRegistration = true,
+}
+
 vim.lsp.config.luau_lsp = {
-    capabilities = capabilities,
+    capabilities = luau_capabilities,
     cmd = {
         "luau-lsp",
         "lsp",
