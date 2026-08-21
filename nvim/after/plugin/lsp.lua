@@ -43,15 +43,6 @@ local capabilities = vim.tbl_deep_extend(
     require('cmp_nvim_lsp').default_capabilities()
 )
 
--- lua
-vim.lsp.config.lua_ls = {
-    capabilities = capabilities,
-    settings = {
-        Lua = {
-            diagnostics = { globals = { 'vim' } },
-        },
-    },
-}
 -- rust
 vim.lsp.config.rust_analyzer = {
     capabilities = capabilities,
@@ -133,6 +124,139 @@ vim.lsp.config.pylsp = {
 vim.lsp.config.asm_lsp = {
     capabilities = capabilities,
     root_dir = vim.fs.root(0, { ".git", "." }),
+}
+-- lua
+vim.lsp.config.lua_ls = {
+    capabilities = capabilities,
+    settings = {
+        Lua = {
+            diagnostics = { globals = { 'vim' } },
+        },
+    },
+}
+-- luau
+local luau_data = vim.fn.stdpath("data") .. "/luau-lsp"
+
+local definitions_path = luau_data .. "/globalTypes.PluginSecurity.d.luau"
+local docs_path = luau_data .. "/en-us.json"
+
+local function download_file(url, path)
+    vim.fn.mkdir(vim.fn.fnamemodify(path, ":h"), "p")
+
+    if vim.fn.executable("curl") == 1 then
+        local result = vim.system({
+            "curl",
+            "-fsSL",
+            url,
+            "-o",
+            path,
+        }):wait()
+
+        return result.code == 0
+    end
+
+    if vim.fn.executable("wget") == 1 then
+        local result = vim.system({
+            "wget",
+            "-q",
+            url,
+            "-O",
+            path,
+        }):wait()
+
+        return result.code == 0
+    end
+
+    vim.notify(
+        "luau-lsp: curl or wget is required to download Roblox definitions",
+        vim.log.levels.ERROR
+    )
+
+    return false
+end
+
+local function ensure_luau_files()
+    if vim.fn.filereadable(definitions_path) == 0 then
+        vim.notify("Downloading Roblox Luau definitions...")
+
+        local success = download_file(
+            "https://luau-lsp.pages.dev/type-definitions/globalTypes.PluginSecurity.d.luau",
+            definitions_path
+        )
+
+        if not success then
+            vim.notify(
+                "Failed to download Roblox Luau definitions",
+                vim.log.levels.ERROR
+            )
+        end
+    end
+
+    if vim.fn.filereadable(docs_path) == 0 then
+        vim.notify("Downloading Roblox Luau documentation...")
+
+        local success = download_file(
+            "https://luau-lsp.pages.dev/api-docs/en-us.json",
+            docs_path
+        )
+
+        if not success then
+            vim.notify(
+                "Failed to download Roblox Luau documentation",
+                vim.log.levels.ERROR
+            )
+        end
+    end
+end
+
+local function find_rojo_project()
+    local cwd = vim.fn.getcwd()
+
+    local default = vim.fs.find("default.project.json", {
+        path = cwd,
+        upward = true,
+    })[1]
+
+    if default then
+        return vim.fn.fnamemodify(default, ":t")
+    end
+
+    local project = vim.fs.find(function(name)
+        return name:match("%.project%.json$")
+    end, {
+        path = cwd,
+        upward = true,
+    })[1]
+
+    if project then
+        return vim.fn.fnamemodify(project, ":t")
+    end
+
+    return "default.project.json"
+end
+
+ensure_luau_files()
+
+vim.lsp.config.luau_lsp = {
+    capabilities = capabilities,
+    cmd = {
+        "luau-lsp",
+        "lsp",
+        "--definitions:@roblox=" .. definitions_path,
+        "--docs=" .. docs_path,
+    },
+    settings = {
+        ["luau-lsp"] = {
+            platform = {
+                type = "roblox",
+            },
+            sourcemap = {
+                enabled = true,
+                autogenerate = false,
+                rojoProjectFile = find_rojo_project(),
+            },
+        },
+    },
 }
 
 local cmp = require('cmp')
