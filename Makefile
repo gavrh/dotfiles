@@ -33,6 +33,12 @@ nvim:
 	@stow -t ~/.config/nvim nvim
 	@echo "✅ neovim files stowed"
 
+opencode:
+	@if [ -f ~/.config/opencode/opencode.jsonc ]; then rm -rf ~/.config/opencode/opencode.jsonc; fi
+	@if [ -f ~/.config/opencode/instructions.md ]; then rm -rf ~/.config/opencode/instructions.md; fi
+	@stow -t ~/.config/opencode opencode
+	@echo "✅ opencode files stowed"
+
 polybar:
 	@mkdir -p ~/.config/polybar
 	@if [ -d ~/.config/polybar ]; then rm -rf ~/.config/polybar/**; fi
@@ -64,6 +70,6 @@ xorg:
 	@stow -t ~ xorg
 	@echo "✅ xorg files stowed"
 
-stow: bash i3 kitty neofetch nvim polybar qutebrowser rofi tmux xorg
+stow: bash i3 kitty neofetch nvim opencode polybar qutebrowser rofi tmux xorg
 
-.PHONY: stow bash i3 kitty neofetch nvim polybar qutebrowser rofi tmux xorg
+.PHONY: stow bash i3 kitty neofetch nvim opencode polybar qutebrowser rofi tmux xorg
