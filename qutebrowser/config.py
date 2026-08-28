@@ -71,9 +71,6 @@ c.content.autoplay = False
 c.editor.command = ["nvim", "{}"]
 c.scrolling.smooth = False
 
-# rendering
-c.qt.args = ['--disable-gpu', '--disable-software-rasterizer']
-
 # bindings
 config.bind('<Ctrl-s>', 'config-cycle tabs.show always never')
 
@@ -89,3 +86,10 @@ c.url.searchengines = {
 # startup page
 c.url.start_pages = ["https://start.duckduckgo.com"]
 c.url.default_page = "https://start.duckduckgo.com"
+
+# google login workaround
+config.set(
+    "content.headers.user_agent",
+    "Mozilla/5.0 ({os_info}; rv:135.0) Gecko/20100101 Firefox/135",
+    "https://accounts.google.com/*",
+)
