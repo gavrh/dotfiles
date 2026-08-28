@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
 
     -- colorscheme
     use({
+        -- '~/repos/adderall.nvim',
         'gavrh/adderall.nvim',
         as = 'adderall'
     })
@@ -50,6 +51,29 @@ return require('packer').startup(function(use)
             require('opencode').setup({
                 preferred_picker = 'telescope',
                 preferred_completion = 'nvim-cmp',
+
+                ui = {
+                    enable_treesitter_markdown = true,
+
+                    output = {
+                        filetype = 'opencode_output',
+                    },
+                },
+            })
+        end,
+    })
+    -- markdown rendering
+    use({
+        'MeanderingProgrammer/render-markdown.nvim',
+        after = 'nvim-treesitter',
+        config = function()
+            require('render-markdown').setup({
+                anti_conceal = {
+                    enabled = false,
+                },
+                file_types = {
+                    'opencode_output',
+                },
             })
         end,
     })

@@ -22,7 +22,8 @@ require'nvim-treesitter.config'.setup {
         "vimdoc",
         "query",
         "markdown",
-        "markdown_inline"
+        "markdown_inline",
+        "diff"
     },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -53,5 +54,12 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function(args)
         vim.bo[args.buf].syntax = ""
         vim.treesitter.start(args.buf, "luau")
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "opencode_output",
+    callback = function(args)
+        vim.treesitter.start(args.buf, "markdown")
     end,
 })
