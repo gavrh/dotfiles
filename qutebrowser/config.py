@@ -81,6 +81,9 @@ c.url.searchengines = {
     'yt': 'https://www.youtube.com/results?search_query={}',
     'gh': 'https://github.com/search?q={}',
     'r': 'https://www.reddit.com/search/?q={}'
+
+    # gmail user shortcut
+    'gm': 'https://mail.google.com/mail/u/{}/#inbox',
 }
 
 # startup page
