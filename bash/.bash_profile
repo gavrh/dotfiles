@@ -1,12 +1,12 @@
 if [[ -z $DISPLAY ]] && [[ "$XDG_VTNR" -eq 1 ]]; then
-        # export __NV_PRIME_RENDER_OFFLOAD=1 
-        # export __GLX_VENDOR_LIBRARY_NAM=nvidia
-        exec startx
+    # export __NV_PRIME_RENDER_OFFLOAD=1 
+    # export __GLX_VENDOR_LIBRARY_NAM=nvidia
+    exec startx
 fi
 
 if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
