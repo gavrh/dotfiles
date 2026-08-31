@@ -130,6 +130,7 @@ mode "resize" {
 
 # i3 execs
 exec_always --no-startup-id xsetroot -cursor_name left_ptr
+exec_always --no-startup-id xset s off -dpms
 exec_always --no-startup-id xrdb -merge ~/.xresources
 exec_always --no-startup-id ~/.config/i3/autosplit.py
 exec --no-startup-id xwallpaper --stretch ~/.config/i3/wallpaper.jpg
