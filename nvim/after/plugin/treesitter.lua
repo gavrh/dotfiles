@@ -58,6 +58,19 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+    },
+    callback = function(args)
+        vim.bo[args.buf].syntax = ""
+        vim.treesitter.start(args.buf)
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
     pattern = "opencode_output",
     callback = function(args)
         vim.treesitter.start(args.buf, "markdown")
