@@ -7,9 +7,6 @@ alias clear="clear && neofetch"
 # open nvim config from anywhere
 alias nvim-config="nvim ~/.config/nvim"
 
-# air (golang live reload)
-alias air="~/go/bin/air"
-
 # cats (syntax highlighting)
 alias cats="highlight -O ansi --force"
 
