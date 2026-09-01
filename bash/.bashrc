@@ -103,6 +103,8 @@ export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # . "/home/$USER/.deno/env"
+# go
+export PATH="$HOME/go/bin:$PATH"
 # linux
 export PATH="$PATH:/opt/nvim-linux64/bin"
 # llvm
