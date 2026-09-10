@@ -22,5 +22,8 @@ mkcd() {
 # region select screenshot
 alias rss='maim -s ~/Documents/screenshots/$(date +%s).png'
 
+# vencord install / repair
+alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
+
 # logout
 alias logout="sudo systemctl restart lightdm"
