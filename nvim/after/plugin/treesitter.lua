@@ -9,6 +9,7 @@ require'nvim-treesitter.config'.setup {
         "css",
         "c",
         "cpp",
+        "ocaml",
         "asm",
         "lua",
         "luau",
