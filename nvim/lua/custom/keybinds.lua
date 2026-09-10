@@ -4,6 +4,8 @@ vim.keymap.set("n", ";", ":")
 vim.keymap.set("n", "<C-K>", vim.diagnostic.open_float)
 -- open file explorer
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- reload current file from disk
+vim.keymap.set("n", "<leader>r", "<cmd>edit!<cr>")
 -- netrw
 vim.keymap.set("n", "<leader>b", function()
     vim.g.netrw_banner = 1 - vim.g.netrw_banner
