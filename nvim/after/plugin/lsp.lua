@@ -278,6 +278,59 @@ cmp.setup({
     },
     mapping = cmp.mapping.preset.insert({}),
 })
+-- ocaml
+vim.lsp.config.ocamllsp = {
+    capabilities = capabilities,
+    cmd = { 'opam', 'exec', '--', 'ocamllsp' },
+}
+
+local dune_jobs = {}
+local stopping_dune_jobs = false
+
+vim.api.nvim_create_autocmd('FileType', {
+    desc = 'Start Dune watch mode for OCaml projects',
+    pattern = { 'ocaml', 'ocamlinterface', 'ocamllex', 'menhir' },
+    callback = function(event)
+        local root = vim.fs.root(event.buf, { 'dune-workspace', 'dune-project' })
+
+        if not root or dune_jobs[root] then
+            return
+        end
+
+        local job = vim.fn.jobstart(
+            { 'opam', 'exec', '--', 'dune', 'build', '--watch' },
+            {
+                cwd = root,
+                on_exit = function(_, exit_code)
+                    dune_jobs[root] = nil
+
+                    if not stopping_dune_jobs and exit_code ~= 0 then
+                        vim.notify(
+                            'Dune watch exited with code ' .. exit_code,
+                            vim.log.levels.WARN
+                        )
+                    end
+                end,
+            }
+        )
+
+        if job > 0 then
+            dune_jobs[root] = job
+        else
+            vim.notify('Failed to start Dune watch', vim.log.levels.ERROR)
+        end
+    end,
+})
+
+vim.api.nvim_create_autocmd('VimLeavePre', {
+    callback = function()
+        stopping_dune_jobs = true
+
+        for _, job in pairs(dune_jobs) do
+            vim.fn.jobstop(job)
+        end
+    end,
+})
 
 -- autopairs ("", '', {}, [], ())
 require('nvim-autopairs').setup({
