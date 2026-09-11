@@ -30,7 +30,11 @@ o.termguicolors = true
 o.scrolloff = 8
 o.signcolumn = "yes"
 o.updatetime = 50
+
 o.autoread = true
+vim.fn.timer_start(1000, function()
+    vim.cmd.checktime()
+end, { ["repeat"] = -1 })
 
 vim.g.mapleader = " "
 vim.g.netrw_banner = 0
