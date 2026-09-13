@@ -14,6 +14,6 @@ sudo pacman -S stow
 # stow all config files
 make
 
-# stow specific config
-make <config>
+# stow specific config(s)
+make <config(s)>
 ```
