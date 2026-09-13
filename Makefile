@@ -9,14 +9,15 @@ stow: $(PACKAGES)
 $(PACKAGES):
 	@if [ -n "$(filter $@,$(HOME_PACKAGES))" ]; then \
 		target="$$HOME"; \
+		for path in "$@"/* "$@"/.[!.]* "$@"/..?*; do \
+			[ -e "$$path" ] || [ -L "$$path" ] || continue; \
+			rm -rf "$$target/$${path##*/}"; \
+		done; \
 	else \
 		target="$$HOME/.config/$@"; \
+		rm -rf "$$target"; \
 		mkdir -p "$$target"; \
 	fi; \
-	for path in "$@"/* "$@"/.[!.]* "$@"/..?*; do \
-		[ -e "$$path" ] || [ -L "$$path" ] || continue; \
-		rm -rf "$$target/$${path##*/}"; \
-	done; \
 	stow -t "$$target" "$@"; \
 	echo "✅ $@ files stowed"
 
