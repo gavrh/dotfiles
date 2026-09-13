@@ -1,75 +1,23 @@
 .DEFAULT_GOAL := stow
 MAKEFLAGS += --no-print-directory
 
-bash:
-	@if [ -f ~/.bash_aliases ]; then rm -rf ~/.bash_aliases; fi
-	@if [ -f ~/.bash_logout ]; then rm -rf ~/.bash_logout; fi
-	@if [ -f ~/.bash_profile ]; then rm -rf ~/.bash_profile; fi
-	@if [ -f ~/.bashrc ]; then rm -rf ~/.bashrc; fi
-	@stow -t ~ bash
-	@echo "✅ bash files stowed"
+HOME_PACKAGES := bash xorg
+PACKAGES := $(patsubst %/,%,$(filter-out .git/,$(wildcard */)))
 
-i3:
-	@mkdir -p ~/.config/i3
-	@if [ -d ~/.config/i3 ]; then rm -rf ~/.config/i3/**; fi
-	@stow -t ~/.config/i3 i3
-	@echo "✅ i3 files stowed"
+stow: $(PACKAGES)
 
-kitty:
-	@mkdir -p ~/.config/kitty
-	@if [ -d ~/.config/kitty ]; then rm -rf ~/.config/kitty/**; fi
-	@stow -t ~/.config/kitty kitty
-	@echo "✅ kitty files stowed"
+$(PACKAGES):
+	@if [ -n "$(filter $@,$(HOME_PACKAGES))" ]; then \
+		target="$$HOME"; \
+	else \
+		target="$$HOME/.config/$@"; \
+		mkdir -p "$$target"; \
+	fi; \
+	for path in "$@"/* "$@"/.[!.]* "$@"/..?*; do \
+		[ -e "$$path" ] || [ -L "$$path" ] || continue; \
+		rm -rf "$$target/$${path##*/}"; \
+	done; \
+	stow -t "$$target" "$@"; \
+	echo "✅ $@ files stowed"
 
-neofetch:
-	@mkdir -p ~/.config/neofetch
-	@if [ -d ~/.config/neofetch ]; then rm -rf ~/.config/neofetch/**; fi
-	@stow -t ~/.config/neofetch neofetch
-	@echo "✅ neofetch files stowed"
-
-nvim:
-	@mkdir -p ~/.config/nvim
-	@if [ -d ~/.config/nvim ]; then rm -rf ~/.config/nvim/**; fi
-	@stow -t ~/.config/nvim nvim
-	@echo "✅ neovim files stowed"
-
-opencode:
-	@if [ -f ~/.config/opencode/opencode.jsonc ]; then rm -rf ~/.config/opencode/opencode.jsonc; fi
-	@if [ -f ~/.config/opencode/instructions.md ]; then rm -rf ~/.config/opencode/instructions.md; fi
-	@stow -t ~/.config/opencode opencode
-	@echo "✅ opencode files stowed"
-
-polybar:
-	@mkdir -p ~/.config/polybar
-	@if [ -d ~/.config/polybar ]; then rm -rf ~/.config/polybar/**; fi
-	@stow -t ~/.config/polybar polybar
-	@echo "✅ polybar files stowed"
-
-qutebrowser:
-	@mkdir -p ~/.config/qutebrowser
-	@if [ -d ~/.config/qutebrowser ]; then rm -rf ~/.config/qutebrowser/config.py; fi
-	@stow -t ~/.config/qutebrowser qutebrowser
-	@echo "✅ qutebrowser files stowed"
-
-rofi:
-	@mkdir -p ~/.config/rofi
-	@if [ -d ~/.config/rofi ]; then rm -rf ~/.config/rofi/**; fi
-	@stow -t ~/.config/rofi rofi
-	@echo "✅ rofi files stowed"
-
-tmux:
-	@mkdir -p ~/.config/tmux
-	@if [ -d ~/.config/tmux ]; then rm -rf ~/.config/tmux/**; fi
-	@stow -t ~/.config/tmux tmux
-	@echo "✅ tmux files stowed"
-
-xorg:
-	@if [ -f ~/.xinitrc ]; then rm -rf ~/.xinitrc ; fi
-	@if [ -f ~/.xprofile ]; then rm -rf ~/.xprofile; fi
-	@if [ -f ~/.xresources ]; then rm -rf ~/.xresources; fi
-	@stow -t ~ xorg
-	@echo "✅ xorg files stowed"
-
-stow: bash i3 kitty neofetch nvim opencode polybar qutebrowser rofi tmux xorg
-
-.PHONY: stow bash i3 kitty neofetch nvim opencode polybar qutebrowser rofi tmux xorg
+.PHONY: stow $(PACKAGES)
