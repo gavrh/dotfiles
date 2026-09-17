@@ -142,6 +142,10 @@ exec --no-startup-id polybar
 exec --no-startup-id gnome-keyring-daemon --start --components=secrets
 
 # appearance
-for_window [class=".*"] border pixel 1
+for_window [class=".*"] border pixel 2
+client.focused          #32353e   #32353e     #b4bac7   #32353e   #32353e
+client.focused_inactive #1c1f26   #1c1f26     #b4bac7   #1c1f26   #1c1f26
+client.unfocused        #1c1f26   #1c1f26     #b4bac7   #1c1f26   #1c1f26
 new_window none
 focus_follows_mouse yes
+
