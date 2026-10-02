@@ -11,7 +11,7 @@ alias nvim-config="nvim ~/.config/nvim"
 alias cats="highlight -O ansi --force"
 
 # venv python
-alias vpython="./venv/bin/python"
+alias vpython=".venv/bin/python"
 
 # make dir and cd into it
 mkcd() {
