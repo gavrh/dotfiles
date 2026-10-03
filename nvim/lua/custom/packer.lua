@@ -19,7 +19,11 @@ return require('packer').startup(function(use)
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     -- treesitter
-    use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    use({
+        'nvim-treesitter/nvim-treesitter',
+        commit = 'cf12346a',
+        run = ':TSUpdate',
+    })
     -- use('nvim-treesitter/playground')
     use('tpope/vim-fugitive')
 
@@ -44,6 +48,7 @@ return require('packer').startup(function(use)
             'muniftanjim/nui.nvim'
         }
     })
+
     -- opencode
     use({
         'sudo-tee/opencode.nvim',
@@ -62,6 +67,7 @@ return require('packer').startup(function(use)
             })
         end,
     })
+
     -- markdown rendering
     use({
         'MeanderingProgrammer/render-markdown.nvim',

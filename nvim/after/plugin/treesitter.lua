@@ -1,8 +1,12 @@
 -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-require'nvim-treesitter.config'.setup {
+local ok, ts = pcall(require, 'nvim-treesitter.configs')
+if not ok then
+    ts = require('nvim-treesitter.config') -- fallback for the main branch
+end
+
+ts.setup {
     ensure_installed = {
         "javascript",
-        "jsx",
         "typescript",
         "tsx",
         "html",
@@ -29,8 +33,6 @@ require'nvim-treesitter.config'.setup {
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
-    "javascriptreact",
-    "typescriptreact",
     -- Automatically install missing parsers when entering buffer
     -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
     auto_install = true,
