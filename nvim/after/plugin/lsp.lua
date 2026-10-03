@@ -87,6 +87,9 @@ vim.lsp.config.tailwindcss = {
     },
     settings = {
         tailwindCSS = {
+            experimental = {
+                configFile = vim.fn.stdpath("config") .. "/lua/custom/tailwind.css",
+            },
             lint = {
                 suggestCanonicalClasses = "ignore"
             }
