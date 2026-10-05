@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := stow
 MAKEFLAGS += --no-print-directory
 
-HOME_PACKAGES := bash xorg
+HOME_PACKAGES := bash git xorg
 PACKAGES := $(patsubst %/,%,$(filter-out .git/,$(wildcard */)))
 
 stow: $(PACKAGES)
