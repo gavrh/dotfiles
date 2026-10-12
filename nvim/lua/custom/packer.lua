@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
     -- treesitter
     use({
         'nvim-treesitter/nvim-treesitter',
-        commit = 'cf12346a',
+        branch = 'main',
         run = ':TSUpdate',
     })
     -- use('nvim-treesitter/playground')
