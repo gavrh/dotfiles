@@ -1,75 +1,40 @@
--- A list of parser names, or "all" (the listed parsers MUST always be installed)
-local ok, ts = pcall(require, 'nvim-treesitter.configs')
-if not ok then
-    ts = require('nvim-treesitter.config') -- fallback for the main branch
-end
-
-ts.setup {
-    ensure_installed = {
-        "javascript",
-        "typescript",
-        "tsx",
-        "html",
-        "css",
-        "c",
-        "cpp",
-        "ocaml",
-        "asm",
-        "lua",
-        "luau",
-        "rust",
-        "go",
-        "zig",
-        "haskell",
-        "java",
-        "python",
-        "vim",
-        "vimdoc",
-        "query",
-        "markdown",
-        "markdown_inline",
-        "diff"
-    },
-
-    -- Install parsers synchronously (only applied to `ensure_installed`)
-    sync_install = false,
-    -- Automatically install missing parsers when entering buffer
-    -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-    auto_install = true,
-
-    highlight = {
-        -- 'false' will disable the whole extension
-        enable = true,
-
-        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-        -- Using this option may slow down your editor, and you may see some duplicate highlights.
-        -- Instead of true it can also be a list of languages
-        additional_vim_regex_highlighting = false,
-    },
-    indent = {
-        enable = true,
-    },
+-- A list of parser names to install (nvim-treesitter `main` branch API)
+local parsers = {
+    "javascript",
+    "typescript",
+    "tsx",
+    "html",
+    "css",
+    "c",
+    "cpp",
+    "ocaml",
+    "asm",
+    "lua",
+    "luau",
+    "rust",
+    "go",
+    "zig",
+    "haskell",
+    "java",
+    "python",
+    "vim",
+    "vimdoc",
+    "query",
+    "markdown",
+    "markdown_inline",
+    "diff",
 }
 
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "luau",
-    callback = function(args)
-        vim.bo[args.buf].syntax = ""
-        vim.treesitter.start(args.buf, "luau")
-    end,
-})
+require('nvim-treesitter').setup({})
+require('nvim-treesitter').install(parsers)
 
+-- Highlighting and indentation are core features on the `main` branch
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = {
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-    },
     callback = function(args)
-        vim.bo[args.buf].syntax = ""
-        vim.treesitter.start(args.buf)
+        local ok = pcall(vim.treesitter.start, args.buf)
+        if ok then
+            vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
     end,
 })
 
