@@ -7,6 +7,7 @@ local parsers = {
     "css",
     "c",
     "cpp",
+    "c_sharp",
     "ocaml",
     "asm",
     "lua",
@@ -28,11 +29,14 @@ local parsers = {
 require('nvim-treesitter').setup({})
 require('nvim-treesitter').install(parsers)
 
--- Highlighting and indentation are core features on the `main` branch
 vim.api.nvim_create_autocmd("FileType", {
     callback = function(args)
-        local ok = pcall(vim.treesitter.start, args.buf)
-        if ok then
+        if not pcall(vim.treesitter.start, args.buf) then
+            return
+        end
+
+        local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+        if lang and vim.treesitter.query.get(lang, "indents") then
             vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
         end
     end,

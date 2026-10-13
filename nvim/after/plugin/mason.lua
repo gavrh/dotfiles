@@ -13,6 +13,7 @@ require("mason-lspconfig").setup({
         "emmet_ls",
         "tailwindcss",
         "jdtls",
+        "roslyn_ls",
         "postgres_lsp",
         "pylsp",
         "asm_lsp",
