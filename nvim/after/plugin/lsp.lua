@@ -56,6 +56,8 @@ vim.lsp.config.clangd = {
         "--compile-commands-dir=build",
     },
 }
+-- c#
+vim.lsp.config.roslyn_ls = { capabilities = capabilities }
 -- cmake
 vim.lsp.config.cmake = { capabilities = capabilities }
 -- go
