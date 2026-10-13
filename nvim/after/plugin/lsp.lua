@@ -57,7 +57,14 @@ vim.lsp.config.clangd = {
     },
 }
 -- c#
-vim.lsp.config.roslyn_ls = { capabilities = capabilities }
+vim.lsp.config.roslyn_ls = {
+    capabilities = capabilities,
+    settings = {
+        ["csharp|background_analysis"] = {
+            dotnet_analyzer_diagnostics_scope = "none",
+        },
+    },
+}
 -- cmake
 vim.lsp.config.cmake = { capabilities = capabilities }
 -- go
