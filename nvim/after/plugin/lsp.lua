@@ -119,7 +119,13 @@ vim.lsp.config.pylsp = {
                 black = { enabled = true },
                 autopep8 = { enabled = false },
                 yapf = { enabled = false },
-                pylint = { enabled = true, executable = "pylint" },
+                pylint = {
+                    enabled = true,
+                    executable = "pylint",
+                    args = {
+                        "--disable=missing-module-docstring,missing-class-docstring,missing-function-docstring",
+                    },
+                },
                 pyflakes = { enabled = false },
                 pycodestyle = { enabled = false },
                 pylsp_mypy = { enabled = true },
