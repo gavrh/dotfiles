@@ -1,0 +1,59 @@
+* {
+    font-family: "Hack", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #16181d;
+    color: #ccd0d9;
+    border-radius: 0;
+}
+
+#workspaces button {
+    padding: 0 4px;
+    color: #707880;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#workspaces button.occupied {
+    color: #ccd0d9;
+}
+
+#workspaces button.active {
+    color: #ccd0d9;
+    background: #1c1f26;
+    box-shadow: inset 0 -3px #6c7791;
+}
+
+#workspaces button.urgent {
+    color: #ccd0d9;
+    background: #A54242;
+}
+
+#window {
+    color: #ccd0d9;
+    padding: 0 6px;
+}
+
+#pulseaudio,
+#memory,
+#cpu,
+#custom-clock {
+    padding: 0 6px;
+}
+
+#custom-sep-left,
+#custom-sep-vol,
+#custom-sep-ram,
+#custom-sep-cpu {
+    color: #6c7791;
+    padding: 0 2px;
+}
+
+#custom-clock {
+    color: #6c7791;
+}

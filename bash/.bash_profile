@@ -1,7 +1,5 @@
-if [[ -z $DISPLAY ]] && [[ "$XDG_VTNR" -eq 1 ]]; then
-    # export __NV_PRIME_RENDER_OFFLOAD=1 
-    # export __GLX_VENDOR_LIBRARY_NAM=nvidia
-    exec startx
+if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && command -v uwsm >/dev/null 2>&1 && uwsm check may-start; then
+    exec uwsm start hyprland.desktop
 fi
 
 if [ -n "$BASH_VERSION" ]; then
