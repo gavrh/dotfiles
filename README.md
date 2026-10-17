@@ -150,14 +150,6 @@ To disable the startup lock, remove this line from `hypr/hyprland.lua`:
 hl.exec_cmd("hyprlock")
 ```
 
-To disable LightDM autologin, remove or edit this file:
-
-```text
-/etc/lightdm/lightdm.conf.d/50-autologin.conf
-```
-
-Removing `autologin-user` and `autologin-session` restores the normal LightDM greeter.
-
 To set up LightDM autologin, add the user to the `autologin` group:
 
 ```bash
