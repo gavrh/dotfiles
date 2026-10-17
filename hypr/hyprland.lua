@@ -229,6 +229,7 @@ hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Reload and exit
+hl.bind(modShift .. " + l", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(modShift .. " + c", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind(modShift .. " + r", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind(modShift .. " + e", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
