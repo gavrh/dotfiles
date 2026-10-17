@@ -139,3 +139,44 @@ export XCURSOR_SIZE="24"
 ```
 
 Install the configured font and cursor theme before applying these values.
+
+### LightDM autologin
+
+This repository does not configure LightDM. My setup uses LightDM autologin to start the `hyprland-uwsm` session, which bypasses the LightDM greeter. The `hyprlock` entry in the Hyprland autostart is intentional: it presents the lock screen after autologin, so the desktop is not left unlocked at boot.
+
+To disable the startup lock, remove this line from `hypr/hyprland.lua`:
+
+```lua
+hl.exec_cmd("hyprlock")
+```
+
+To disable LightDM autologin, remove or edit this file:
+
+```text
+/etc/lightdm/lightdm.conf.d/50-autologin.conf
+```
+
+Removing `autologin-user` and `autologin-session` restores the normal LightDM greeter.
+
+To set up LightDM autologin, add the user to the `autologin` group:
+
+```bash
+sudo groupadd -r autologin
+sudo gpasswd -a <USER> autologin
+```
+
+Then create `/etc/lightdm/lightdm.conf.d/50-autologin.conf`:
+
+```ini
+[Seat:*]
+autologin-user=<USER>
+autologin-user-timeout=0
+autologin-session=hyprland-uwsm
+user-session=hyprland-uwsm
+```
+
+Enable LightDM:
+
+```bash
+sudo systemctl enable lightdm
+```
