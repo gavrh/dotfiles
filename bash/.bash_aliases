@@ -26,4 +26,4 @@ alias rss='mkdir -p ~/Documents/screenshots && grim -g "$(slurp)" ~/Documents/sc
 alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
 
 # logout
-alias logout="sudo systemctl restart lightdm"
+alias logout="hyprctl dispatch exit"
