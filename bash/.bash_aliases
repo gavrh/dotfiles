@@ -20,7 +20,7 @@ mkcd() {
 }
 
 # region select screenshot
-alias rss='maim -s ~/Documents/screenshots/$(date +%s).png'
+alias rss='mkdir -p ~/Documents/screenshots && grim -g "$(slurp)" ~/Documents/screenshots/$(date +%s).png'
 
 # vencord install / repair
 alias vencord='sh -c "$(curl -sS https://vencord.dev/install.sh)"'
