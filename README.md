@@ -1,5 +1,5 @@
 # dotfiles
-My dotfiles for my arch linux, i3 with xorg desktop setup.
+My dotfiles for my arch linux hyprland/wayland setup.
 
 ## Installation
 ```bash
