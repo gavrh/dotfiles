@@ -93,3 +93,80 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
     hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 end)
+
+----------------------
+---- LOOK & FEEL ----
+----------------------
+
+hl.config({
+    general = {
+        gaps_in = 0,
+        gaps_out = 0,
+        border_size = 3,
+        col = {
+            active_border = "rgb(252933)",
+            inactive_border = "rgb(1c1f26)",
+        },
+        resize_on_border = false,
+        allow_tearing = false,
+        layout = "dwindle",
+    },
+
+    decoration = {
+        rounding = 0,
+        active_opacity = 1.0,
+        inactive_opacity = 1.0,
+        shadow = {
+            enabled = false,
+        },
+        blur = {
+            enabled = false,
+        },
+    },
+
+    animations = {
+        enabled = true,
+    },
+
+    dwindle = {
+        preserve_split = true,
+        force_split = 2,
+    },
+
+    input = {
+        kb_layout = "us",
+        follow_mouse = 1,
+        sensitivity = 0,
+    },
+
+    cursor = {
+        no_warps = false,
+        warp_on_change_workspace = 0,
+    },
+
+    misc = {
+        disable_hyprland_logo = true,
+        disable_splash_rendering = true,
+        force_default_wallpaper = -1,
+    },
+
+    ecosystem = {
+        no_update_news = true,
+    },
+})
+
+hl.curve("minimal", { type = "bezier", points = { {0.25, 0.1}, {0.25, 1.0} } })
+
+local animationSpeed = 2
+
+hl.animation({ leaf = "global", enabled = true, speed = animationSpeed, bezier = "minimal" })
+hl.animation({ leaf = "windows", enabled = true, speed = animationSpeed, bezier = "minimal" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = animationSpeed, bezier = "minimal", style = "popin 95%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = animationSpeed, bezier = "minimal", style = "popin 95%" })
+hl.animation({ leaf = "fade", enabled = true, speed = animationSpeed, bezier = "minimal" })
+hl.animation({ leaf = "fadeIn", enabled = true, speed = animationSpeed, bezier = "minimal" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = animationSpeed, bezier = "minimal" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = animationSpeed, bezier = "minimal", style = "fade" })
+hl.animation({ leaf = "layers", enabled = true, speed = animationSpeed, bezier = "minimal" })
+hl.animation({ leaf = "layersIn", enabled = true, speed = animationSpeed, bezier = "minimal", style = "fade" })
+hl.animation({ leaf = "layersOut", enabled = true, speed = animationSpeed, bezier = "minimal", style = "fade" })
