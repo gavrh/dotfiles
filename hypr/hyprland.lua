@@ -170,3 +170,90 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = animationSpeed, bezi
 hl.animation({ leaf = "layers", enabled = true, speed = animationSpeed, bezier = "minimal" })
 hl.animation({ leaf = "layersIn", enabled = true, speed = animationSpeed, bezier = "minimal", style = "fade" })
 hl.animation({ leaf = "layersOut", enabled = true, speed = animationSpeed, bezier = "minimal", style = "fade" })
+
+--------------------
+---- WINDOW RULES ----
+--------------------
+
+hl.window_rule({
+    name = "suppress-maximize-events",
+    match = { class = ".*" },
+    suppress_event = "maximize",
+})
+
+---------------------
+---- KEYBINDINGS ----
+---------------------
+local mod      = "SUPER"
+local modShift = mod .. " + SHIFT"
+local modAlt   = mod .. " + ALT"
+
+-- Launch programs
+hl.bind(mod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(mod .. " + b", hl.dsp.exec_cmd(browser))
+hl.bind(mod .. " + d", hl.dsp.exec_cmd(menu))
+hl.bind(mod .. " + e", hl.dsp.exec_cmd(fileManager))
+
+-- Window management
+hl.bind(mod .. " + c", hl.dsp.window.close())
+hl.bind(mod .. " + f", hl.dsp.window.fullscreen({ action = "toggle" }))
+hl.bind(mod .. " + space", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mod .. " + x", hl.dsp.layout("togglesplit"))
+hl.bind(mod .. " + w", hl.dsp.layout("togglesplit"))
+
+-- Manual splits
+hl.bind(mod .. " + CTRL + h", hl.dsp.layout("preselect r"))
+hl.bind(mod .. " + CTRL + v", hl.dsp.layout("preselect d"))
+
+-- Focus
+hl.bind(mod .. " + h", hl.dsp.focus({ direction = "left" }))
+hl.bind(mod .. " + j", hl.dsp.focus({ direction = "down" }))
+hl.bind(mod .. " + k", hl.dsp.focus({ direction = "up" }))
+hl.bind(mod .. " + l", hl.dsp.focus({ direction = "right" }))
+
+-- Move windows
+hl.bind(modAlt .. " + h", hl.dsp.window.move({ direction = "left" }))
+hl.bind(modAlt .. " + j", hl.dsp.window.move({ direction = "down" }))
+hl.bind(modAlt .. " + k", hl.dsp.window.move({ direction = "up" }))
+hl.bind(modAlt .. " + l", hl.dsp.window.move({ direction = "right" }))
+
+-- Workspaces
+for workspace = 1, 10 do
+    local key = workspace % 10
+    hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = workspace }))
+    hl.bind(modShift .. " + " .. key, hl.dsp.window.move({ workspace = workspace, follow = false }))
+end
+
+-- Mouse move/resize
+hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+-- Reload and exit
+hl.bind(modShift .. " + c", hl.dsp.exec_cmd("hyprctl reload"))
+hl.bind(modShift .. " + r", hl.dsp.exec_cmd("hyprctl reload"))
+hl.bind(modShift .. " + e", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit"))
+
+-- Media keys
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ +10%"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pactl set-sink-volume @DEFAULT_SINK@ -10%"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pactl set-sink-mute @DEFAULT_SINK@ toggle"), { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pactl set-source-mute @DEFAULT_SOURCE@ toggle"), { locked = true, repeating = true })
+
+-- Resize mode
+hl.bind(mod .. " + r", hl.dsp.submap("resize"))
+
+hl.define_submap("resize", function()
+    hl.bind("j", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
+    hl.bind("k", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
+    hl.bind("l", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+    hl.bind("semicolon", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
+
+    hl.bind("left", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
+    hl.bind("down", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
+    hl.bind("up", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+    hl.bind("right", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
+
+    hl.bind("Return", hl.dsp.submap("reset"))
+    hl.bind("Escape", hl.dsp.submap("reset"))
+    hl.bind(mod .. " + r", hl.dsp.submap("reset"))
+end)
