@@ -118,6 +118,6 @@ test -r "$HOME/.opam/opam-init/init.sh" && . "$HOME/gavin/.opam/opam-init/init.s
 eval $(opam env)
 
 # start tmux
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+if [ -n "$DISPLAY$WAYLAND_DISPLAY" ] && command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
     exec tmux
 fi
