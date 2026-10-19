@@ -1,6 +1,11 @@
 # dotfiles
 My dotfiles for my arch linux hyprland/wayland setup.
 
+<img width="100%" alt="1792368813" src="https://github.com/user-attachments/assets/67415056-57e2-49f5-9060-2c4028abc0bf" />
+<img width="100%" alt="1792368837" src="https://github.com/user-attachments/assets/7aba6014-51c8-43c9-b1a4-118dfaee5f84" />
+<img width="100%" alt="1792368821" src="https://github.com/user-attachments/assets/4cd77404-5103-4434-be68-d22e5d75595e" />
+<img width="100%" alt="1792368914" src="https://github.com/user-attachments/assets/fde55338-da96-4325-a726-f50525a0a169" />
+
 ## Installation
 ```bash
 # clone repo
