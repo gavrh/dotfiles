@@ -1,19 +1,32 @@
 [credential "https://github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
+
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
+
 [user]
 	name = Gavin Holmes
 	email = 96849112+gavrh@users.noreply.github.com
+    signingkey = 2C0FF32E601F0054284C4D441A59651ABF1323C6
+
+[gpg]
+    format = openpgp
+
+[commit]
+    gpgsign = true
+
 [core]
     editor = nvim
     pager = delta
+
 [interactive]
     diffFilter = delta --color-only
+
 [delta]
     navigate = true  # use n and N to move between diff sections
     dark = true      # or light = true, or omit for auto-detection
+
 [merge]
     conflictStyle = zdiff3
