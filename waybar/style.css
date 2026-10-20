@@ -39,6 +39,8 @@ window#waybar {
     padding: 0 6px;
 }
 
+#network,
+#battery,
 #pulseaudio,
 #memory,
 #cpu,
@@ -46,7 +48,13 @@ window#waybar {
     padding: 0 6px;
 }
 
+#network.disconnected {
+    color: #707880;
+}
+
 #custom-sep-left,
+#custom-sep-net,
+#custom-sep-bat,
 #custom-sep-vol,
 #custom-sep-ram,
 #custom-sep-cpu {

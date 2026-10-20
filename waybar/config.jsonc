@@ -7,7 +7,7 @@
     "margin-bottom": 0,
     "margin-left": 0,
     "margin-right": 0,
-    "output": "HDMI-A-1",
+    "output": "eDP-1",
     "modules-left": [
         "hyprland/workspaces",
         "custom/sep-left",
@@ -15,6 +15,10 @@
     ],
     "modules-center": [],
     "modules-right": [
+        "network",
+        "custom/sep-net",
+        "battery",
+        "custom/sep-bat",
         "pulseaudio",
         "custom/sep-vol",
         "memory",
@@ -36,6 +40,14 @@
         "format": "|",
         "tooltip": false
     },
+    "custom/sep-net": {
+        "format": "|",
+        "tooltip": false
+    },
+    "custom/sep-bat": {
+        "format": "|",
+        "tooltip": false
+    },
     "custom/sep-vol": {
         "format": "|",
         "tooltip": false
@@ -47,6 +59,23 @@
     "custom/sep-cpu": {
         "format": "|",
         "tooltip": false
+    },
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "<span color='#6c7791'>NET</span> {essid}",
+        "format-ethernet": "<span color='#6c7791'>NET</span> {ifname}",
+        "format-disconnected": "<span color='#6c7791'>NET</span> None",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "adapter": "ADP0",
+        "interval": 30,
+        "format": "<span color='#6c7791'>BAT</span> {capacity}%",
+        "format-charging": "<span color='#6c7791'>+BAT</span> {capacity}%",
+        "format-plugged": "<span color='#6c7791'>BAT</span> {capacity}%",
+        "format-full": "<span color='#6c7791'>BAT</span> Full",
+        "tooltip-format": "{time} remaining"
     },
     "pulseaudio": {
         "format": "<span color='#6c7791'>VOL</span> {volume}%",
