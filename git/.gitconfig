@@ -9,7 +9,7 @@
 [user]
 	name = Gavin Holmes
 	email = 96849112+gavrh@users.noreply.github.com
-    signingkey = 2C0FF32E601F0054284C4D441A59651ABF1323C6
+    signingkey = A7E831D96F23FF95E4E13912B6563FF4FD07F6EE
 
 [gpg]
     format = openpgp
