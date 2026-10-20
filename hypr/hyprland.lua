@@ -14,25 +14,10 @@ local menu        = "rofi -show drun"
 ------------------
 
 hl.monitor({
-    output = "HDMI-A-1",
-    mode = "1920x1080@60",
+    output = "eDP-1",
+    mode = "2560x1600@60",
     position = "0x0",
-    scale = 1,
-    transform = 1,
-})
-
-hl.monitor({
-    output = "DP-3",
-    mode = "1920x1080@240",
-    position = "1080x325",
-    scale = 1,
-})
-
-hl.monitor({
-    output = "HDMI-A-2",
-    mode = "2560x1440@75",
-    position = "3000x50",
-    scale = 1,
+    scale = 2.0,
 })
 
 -- Fallback for any output not listed above.
@@ -48,15 +33,15 @@ hl.monitor({
 ---------------------------
 
 local workspaceOutputs = {
-    [1] = "HDMI-A-1",
-    [2] = "DP-3",
-    [3] = "HDMI-A-2",
-    [4] = "HDMI-A-1",
-    [5] = "DP-3",
-    [6] = "HDMI-A-2",
-    [7] = "HDMI-A-1",
-    [8] = "DP-3",
-    [9] = "HDMI-A-2",
+    [1] = "eDP-1",
+    [2] = "eDP-1",
+    [3] = "eDP-1",
+    [4] = "eDP-1",
+    [5] = "eDP-1",
+    [6] = "eDP-1",
+    [7] = "eDP-1",
+    [8] = "eDP-1",
+    [9] = "eDP-1",
 }
 
 for workspace, output in pairs(workspaceOutputs) do
@@ -137,6 +122,13 @@ hl.config({
         kb_layout = "us",
         follow_mouse = 1,
         sensitivity = 0,
+        touchpad = {
+            natural_scroll = true,
+            scroll_factor = 0.8,
+            tap_to_click = false,
+            tap_and_drag = false,
+            clickfinger_behavior = true,
+        },
     },
 
     cursor = {
