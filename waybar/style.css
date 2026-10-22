@@ -19,19 +19,10 @@ window#waybar {
     box-shadow: none;
 }
 
-#workspaces button.occupied {
-    color: #ccd0d9;
-}
-
 #workspaces button.active {
     color: #ccd0d9;
     background: #1c1f26;
     box-shadow: inset 0 -3px #6c7791;
-}
-
-#workspaces button.urgent {
-    color: #ccd0d9;
-    background: #A54242;
 }
 
 #window {
