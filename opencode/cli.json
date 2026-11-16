@@ -9,6 +9,8 @@
     "session": {
         "sidebar": "auto",
         "scrollbar": false,
+        "grouping": "none",
+        "verbosity": "high",
         "thinking": "hide"
     },
     "animations": true,
